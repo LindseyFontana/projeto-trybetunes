@@ -11,6 +11,7 @@ class Login extends React.Component {
       userName: '',
       isButtonDesabled: true,
       isLoading: false,
+      startRedirecting: false,
     };
   }
 
@@ -33,7 +34,7 @@ class Login extends React.Component {
   }
 
   render() {
-    const { isLoading, userName, isButtonDesabled } = this.state;
+    const { startRedirecting, isLoading, userName, isButtonDesabled } = this.state;
 
     return (
       <div data-testid="page-login">
@@ -53,12 +54,15 @@ class Login extends React.Component {
                 event.preventDefault();
                 this.setState({ isLoading: true });
                 createUser({ name: userName })
-                  .then(() => this.setState({ isLoading: false }));
+                  .then(() => this.setState(
+                    { isLoading: false, startRedirecting: true }
+                  ));
               } }
             >
               Entrar
             </button>
-            {isLoading ? <Loading /> : <Redirect to="/search" />}
+            {isLoading && <Loading /> }
+            {startRedirecting && <Redirect to="/search" /> }
           </fieldset>
         </form>
       </div>
