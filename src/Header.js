@@ -1,31 +1,30 @@
 import React from 'react';
 import { getUser } from './services/userAPI';
+import Loading from './pages/Loading';
 
 class Header extends React.Component {
   constructor() {
     super();
     this.state = {
       name: '',
-      isRender: false,
+      nameIsRender: false,
     };
   }
 
-  componentDidMount() {
-    getUser()
-      .then((user) => {
-        this.setState({
-          name: user.name,
-          isRender: true,
-        });
-      });
+  async componentDidMount() {
+    const user = await getUser();
+    this.setState({
+      name: user.name,
+      nameIsRender: true,
+    });
   }
 
   render() {
-    const { isRender, name } = this.state;
+    const { nameIsRender, name } = this.state;
     return (
       <header data-testid="header-component">
         <p>HEADER</p>
-        { isRender && <p>{ name }</p> }
+        { nameIsRender ? <p data-testid="header-user-name">{ name }</p> : <Loading />}
       </header>
     );
   }
