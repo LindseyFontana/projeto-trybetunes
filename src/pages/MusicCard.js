@@ -25,12 +25,11 @@ class MusicCard extends React.Component {
   }
 }
 
-// MusicCard.propTypes = {
-//   musicsList: PropTypes.shape({
-//     musicsList: PropTypes.shape({
-
-//     })
-//   }).isRequired;
-// };
+MusicCard.propTypes = {
+  musicsList: PropTypes.arrayOf(PropTypes.shape({
+    preview: PropTypes.string.isRequired,
+    musicName: PropTypes.string.isRequired,
+  })).isRequired,
+};
 
 export default MusicCard;
