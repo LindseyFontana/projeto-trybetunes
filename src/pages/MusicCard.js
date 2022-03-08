@@ -9,8 +9,8 @@ class MusicCard extends React.Component {
         {musicsList
           .map((music, index) => (
             <div key={ index }>
-              <p>{music.trackName}</p>
-              <audio data-testid="audio-component" src={ music.previewUrl } controls>
+              <p>{music.musicName}</p>
+              <audio data-testid="audio-component" src={ music.preview } controls>
                 <track kind="captions" />
                 {' '}
                 O seu navegador não suporta o elemento

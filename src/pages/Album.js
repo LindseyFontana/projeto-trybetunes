@@ -16,7 +16,11 @@ class Album extends React.Component {
     const { match: { params: { id } } } = this.props;
     const musicsInfos = await getMusics(id);
     const tracks = musicsInfos
-      .filter((music) => Object.keys(music).includes('trackName'));
+      .filter((music) => Object.keys(music).includes('trackName'))
+      .map((music) => ({
+        preview: music.previewUrl,
+        musicName: music.trackName,
+      }));
     this.setState({
       album: musicsInfos[0],
       musics: tracks,
