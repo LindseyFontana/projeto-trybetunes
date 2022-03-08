@@ -61,7 +61,6 @@ describe('7 - Crie a lista de músicas do álbum selecionado', () => {
       () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
       { timeout: 3000 }
     );
-
     expect(screen.getByText('Track Name 1')).toBeInTheDocument();
     expect(screen.getByText('Track Name 2')).toBeInTheDocument();
     expect(screen.getByText('Track Name 3')).toBeInTheDocument();

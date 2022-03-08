@@ -1,15 +1,14 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 
 class MusicCard extends React.Component {
   render() {
     const { musicsList } = this.props;
-    console.log(musicsList);
     return (
       <div>
         {musicsList
-          .filter((music) => music.wrapperType === 'track')
-          .map((music) => (
-            <div key={ music.trackId }>
+          .map((music, index) => (
+            <div key={ index }>
               <p>{music.trackName}</p>
               <audio data-testid="audio-component" src={ music.previewUrl } controls>
                 <track kind="captions" />
@@ -25,5 +24,13 @@ class MusicCard extends React.Component {
     );
   }
 }
+
+// MusicCard.propTypes = {
+//   musicsList: PropTypes.shape({
+//     musicsList: PropTypes.shape({
+
+//     })
+//   }).isRequired;
+// };
 
 export default MusicCard;
