@@ -24,12 +24,10 @@ class Header extends React.Component {
     const { nameIsRender, name } = this.state;
     return (
       <header data-testid="header-component">
-        <p>HEADER</p>
-        { nameIsRender ? <p data-testid="header-user-name">{ name }</p> : <Loading />}
         <Link data-testid="link-to-search" to="/search"> Search </Link>
         <Link data-testid="link-to-favorites" to="/favorites"> Favorite Music </Link>
         <Link data-testid="link-to-profile" to="/profile"> Profile </Link>
-        /favorites
+        { nameIsRender ? <p data-testid="header-user-name">{ name }</p> : <Loading />}
       </header>
     );
   }
