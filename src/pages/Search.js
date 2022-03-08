@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Loading from './Loading';
+import NotFound from './NotFound';
 
 class Search extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class Search extends React.Component {
       isButtonDesabled: true,
       serchedAlbums: [],
       isLoading: false,
+      isSerched: false,
     };
   }
 
@@ -25,6 +27,7 @@ class Search extends React.Component {
       isButtonDesabled: true,
       serchedAlbums: albums,
       isLoading: false,
+      isSerched: true,
     });
   }
 
@@ -35,18 +38,21 @@ class Search extends React.Component {
         searchText: value,
         isButtonDesabled: false,
         serchedAlbums: [],
+        isSerched: false,
       });
     } else {
       this.setState({
         searchText: value,
         isButtonDesabled: true,
         serchedAlbums: [],
+        isSerched: false,
       });
     }
   }
 
   render() {
-    const { isLoading, serchedAlbums, searchText, isButtonDesabled } = this.state;
+    const { isSerched, isLoading,
+      serchedAlbums, searchText, isButtonDesabled } = this.state;
     return (
       <div data-testid="page-search">
         <form>
@@ -56,7 +62,6 @@ class Search extends React.Component {
               <div>
                 <input
                   type="text"
-                  value={ searchText }
                   data-testid="search-artist-input"
                   onChange={ this.validadeSearchText }
                 />
@@ -71,6 +76,8 @@ class Search extends React.Component {
               </div>
             )}
           <div>
+            { isSerched && serchedAlbums.length === 0 && <NotFound /> }
+
             {serchedAlbums.length > 0
             && (
               <div>
@@ -81,7 +88,7 @@ class Search extends React.Component {
                   <div key={ album.collectionName }>
                     <Link
                       data-testid={ `link-to-album-${album.collectionId}` }
-                      to={ `/album/:${album.collectionId}` }
+                      to={ `/album/${album.collectionId}` }
                     >
                       <img src={ album.artworkUrl100 } alt="Album" />
                       <h2>{ album.collectionName }</h2>
