@@ -55,7 +55,7 @@ class Login extends React.Component {
                 this.setState({ isLoading: true });
                 createUser({ name: userName })
                   .then(() => this.setState(
-                    { isLoading: false, startRedirecting: true }
+                    { isLoading: false, startRedirecting: true },
                   ));
               } }
             >
