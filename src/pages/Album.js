@@ -20,6 +20,7 @@ class Album extends React.Component {
       .map((music) => ({
         preview: music.previewUrl,
         musicName: music.trackName,
+        trackId: music.trackId,
       }));
     this.setState({
       album: musicsInfos[0],
