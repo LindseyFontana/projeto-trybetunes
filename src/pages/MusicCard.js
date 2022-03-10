@@ -2,6 +2,7 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
+import './style/MusicCard.css';
 
 class MusicCard extends React.Component {
   constructor() {
@@ -48,26 +49,32 @@ class MusicCard extends React.Component {
           ? <Loading />
           : musicsList
             .map((music, index) => (
-              <div key={ index }>
-                <p>{music.musicName}</p>
-                <audio data-testid="audio-component" src={ music.preview } controls>
-                  <track kind="captions" />
-                  {' '}
-                  O seu navegador não suporta o elemento
-                  {' '}
-                  <code>audio</code>
-                  ..
-                </audio>
-                <label htmlFor="favorite-music">
-                  Favorita
-                  <input
-                    type="checkbox"
-                    id={ `${music.trackId}` }
-                    data-testid={ `checkbox-music-${music.trackId}` }
-                    onClick={ this.saveFavorite }
-                    checked={ favoriteCards.includes(music.trackId) }
-                  />
-                </label>
+              <div key={ index } className="music">
+                <p className="music-name">{music.musicName}</p>
+                <div className="audio-favorited">
+                  <audio
+                    className="audio"
+                    data-testid="audio-component"
+                    src={ music.preview }
+                    controls
+                  >
+                    <track kind="captions" />
+                    {' '}
+                    O seu navegador não suporta o elemento
+                    {' '}
+                    <code>audio</code>
+                    ..
+                  </audio>
+                  <label htmlFor="favorite-music" className="favorited">
+                    <input
+                      type="checkbox"
+                      id={ `${music.trackId}` }
+                      data-testid={ `checkbox-music-${music.trackId}` }
+                      onClick={ this.saveFavorite }
+                      checked={ favoriteCards.includes(music.trackId) }
+                    />
+                  </label>
+                </div>
               </div>
             ))}
       </div>

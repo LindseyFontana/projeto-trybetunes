@@ -2,6 +2,7 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import getMusics from '../services/musicsAPI';
 import MusicCard from './MusicCard';
+import './style/MusicCard.css';
 
 class Album extends React.Component {
   constructor() {
@@ -35,10 +36,12 @@ class Album extends React.Component {
       <div data-testid="page-album">
         { musics.length > 0
         && (
-          <div>
-            <img src={ album.artworkUrl100 } alt="Album" />
-            <h2 data-testid="album-name">{ album.collectionName }</h2>
-            <p data-testid="artist-name">{ album.artistName }</p>
+          <div className="music-card">
+            <div className="album">
+              <img className="album-image" src={ album.artworkUrl100 } alt="Album" />
+              <h2 data-testid="album-name">{ album.collectionName }</h2>
+              <p data-testid="artist-name">{ album.artistName }</p>
+            </div>
             <div>
               <MusicCard musicsList={ musics } />
             </div>

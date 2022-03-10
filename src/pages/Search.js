@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Loading from './Loading';
 import NotFound from './NotFound';
+import './style/Search.css';
 
 class Search extends React.Component {
   constructor(props) {
@@ -84,18 +85,20 @@ class Search extends React.Component {
                 <h1>
                   { `Resultado de álbuns de: ${searchText}`}
                 </h1>
-                {serchedAlbums.map((album) => (
-                  <div key={ album.collectionName }>
-                    <Link
-                      data-testid={ `link-to-album-${album.collectionId}` }
-                      to={ `/album/${album.collectionId}` }
-                    >
-                      <img src={ album.artworkUrl100 } alt="Album" />
-                      <h2>{ album.collectionName }</h2>
-                      <p>{ album.artistName }</p>
-                    </Link>
-                  </div>
-                ))}
+                <div className="searched-albuns">
+                  {serchedAlbums.map((album) => (
+                    <div key={ album.collectionName }>
+                      <Link
+                        data-testid={ `link-to-album-${album.collectionId}` }
+                        to={ `/album/${album.collectionId}` }
+                      >
+                        <img src={ album.artworkUrl100 } alt="Album" />
+                        <h2 className="collection-name">{ album.collectionName }</h2>
+                        <p>{ album.artistName }</p>
+                      </Link>
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
           </div>

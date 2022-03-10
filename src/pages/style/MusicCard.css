@@ -1,0 +1,36 @@
+.music-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.album-image {
+  display: flex;
+  flex-direction: column;
+}
+
+.album > p, .album > h2 {
+  color: #16443e;
+}
+
+img {
+  width: 150px;
+}
+
+.music {
+  align-items: center;
+  border-bottom: 1px solid rgb(224, 224, 224);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  margin-left: 50px;
+  padding: 8px;
+  width: 500px;
+}
+
+.audio-favorited {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
