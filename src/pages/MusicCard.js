@@ -1,6 +1,6 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
+import { addSong, removeSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
 import './style/MusicCard.css';
 
@@ -23,21 +23,35 @@ class MusicCard extends React.Component {
     });
   }
 
-  saveFavorite = async (event) => {
+  updateFavoriteSongs = async (event) => {
     const { musicsList } = this.props;
     const { favoriteCards } = this.state;
-    const favorited = musicsList
+    const clickedSong = musicsList
       .find((music) => music.trackId === parseInt(event.target.id, 10));
     this.setState({
       isLoading: true,
     });
-    if (!favoriteCards.includes(favorited.trackId)) {
-      await addSong(favorited);
-      this.setState((prevState) => ({
-        isLoading: false,
-        favoriteCards: [...prevState.favoriteCards, favorited.trackId],
-      }));
+    if (!favoriteCards.includes(clickedSong.trackId)) {
+      await this.saveFavoriteSong(clickedSong);
+    } else {
+      await this.removeFavoriteSong(clickedSong);
     }
+  }
+
+  saveFavoriteSong = async (song) => {
+    await addSong(song);
+    this.setState((prevState) => ({
+      isLoading: false,
+      favoriteCards: [...prevState.favoriteCards, song.trackId],
+    }));
+  }
+
+  removeFavoriteSong = async (song) => {
+    await removeSong(song);
+    this.setState((prevState) => ({
+      isLoading: false,
+      favoriteCards: [...prevState.favoriteCards.filter((id) => song.trackId !== id)],
+    }));
   }
 
   render() {
@@ -70,7 +84,7 @@ class MusicCard extends React.Component {
                       type="checkbox"
                       id={ `${music.trackId}` }
                       data-testid={ `checkbox-music-${music.trackId}` }
-                      onClick={ this.saveFavorite }
+                      onClick={ this.updateFavoriteSongs }
                       checked={ favoriteCards.includes(music.trackId) }
                     />
                   </label>
