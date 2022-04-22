@@ -19,6 +19,7 @@ class Album extends React.Component {
     const tracks = musicsInfos
       .filter((music) => Object.keys(music).includes('trackName'))
       .map((music) => ({
+        image: music.artworkUrl100,
         preview: music.previewUrl,
         musicName: music.trackName,
         trackId: music.trackId,
@@ -31,7 +32,7 @@ class Album extends React.Component {
 
   render() {
     const { musics, album } = this.state;
-
+    console.log(`musics ${musics}`)
     return (
       <div data-testid="page-album">
         { musics.length > 0

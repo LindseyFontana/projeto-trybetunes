@@ -1,7 +1,9 @@
 import React from 'react';
+import { BsHeadphones } from 'react-icons/bs';
 import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import Loading from './Loading';
+import './style/Login.css';
 
 class Login extends React.Component {
   constructor() {
@@ -37,35 +39,53 @@ class Login extends React.Component {
     const { startRedirecting, isLoading, userName, isButtonDesabled } = this.state;
 
     return (
-      <div data-testid="page-login">
-        <form>
-          <fieldset>
-            <input
-              type="text"
-              name="name"
-              data-testid="login-name-input"
-              onChange={ this.validateInputName }
-            />
-            <button
-              type="submit"
-              data-testid="login-submit-button"
-              disabled={ isButtonDesabled }
-              onClick={ (event) => {
-                event.preventDefault();
-                this.setState({ isLoading: true });
-                createUser({ name: userName })
-                  .then(() => this.setState(
-                    { isLoading: false, startRedirecting: true },
-                  ));
-              } }
-            >
-              Entrar
-            </button>
-            {isLoading && <Loading /> }
-            {startRedirecting && <Redirect to="/search" /> }
-          </fieldset>
-        </form>
-      </div>
+      <form data-testid="page-login" className="page-login">
+        <div className="logo-login-container">
+          <p className="login-logo-up">
+            Trybe
+            <span><BsHeadphones className="icon-login" /></span>
+          </p>
+          <p className="login-logo-down">tunes</p>
+        </div>
+        <fieldset className="login">
+          {isLoading
+            ? <Loading />
+            : (
+              <>
+                <input
+                  type="text"
+                  data-testid="login-name-input"
+                  className="login-name-input"
+                  placeholder="Nome"
+                  onChange={ this.validateInputName }
+                />
+                <input
+                  type="text"
+                  data-testid="login-name-input"
+                  className="login-name-input"
+                  placeholder="Senha"
+                />
+                <button
+                  type="submit"
+                  data-testid="login-submit-button"
+                  className="login-submit-button"
+                  disabled={ isButtonDesabled }
+                  onClick={ (event) => {
+                    event.preventDefault();
+                    this.setState({ isLoading: true });
+                    createUser({ name: userName })
+                      .then(() => this.setState(
+                        { isLoading: false, startRedirecting: true },
+                      ));
+                  } }
+                >
+                  Entrar
+                </button>
+              </>
+            )}
+          {startRedirecting && <Redirect to="/search" /> }
+        </fieldset>
+      </form>
     );
   }
 }

@@ -28,6 +28,7 @@ class MusicCard extends React.Component {
     const { favoriteCards } = this.state;
     const clickedSong = musicsList
       .find((music) => music.trackId === parseInt(event.target.id, 10));
+    console.log(clickedSong)
     this.setState({
       isLoading: true,
     });
@@ -58,7 +59,7 @@ class MusicCard extends React.Component {
     const { musicsList } = this.props;
     const { favoriteCards, isLoading } = this.state;
     return (
-      <div>
+      <div className="favorite-music">
         {isLoading
           ? <Loading />
           : musicsList
@@ -83,6 +84,7 @@ class MusicCard extends React.Component {
                     <input
                       type="checkbox"
                       id={ `${music.trackId}` }
+                      name="favorite-music"
                       data-testid={ `checkbox-music-${music.trackId}` }
                       onClick={ this.updateFavoriteSongs }
                       checked={ favoriteCards.includes(music.trackId) }

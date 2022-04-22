@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter&family=Montserrat&family=Roboto:wght@300&display=swap') ;
+
+.link {
+  color: #2FC18C;
+  height: 100%;
+  width: 90%;
+  text-decoration: none;
+  background: #F0F2F5;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.link:hover {
+  background: #036B52;
+  color: #FFFFFF
+}
+
+.link:active {
+  background: #036B52;
+  color: #FFFFFF
+}
+
+.link-search {
+  margin-right: 6px;
+}
+
+.link-favorite {
+  margin-right: 6px;
+}
+
+.header-component {
+  box-shadow: 0px 4px 1px rgba(0, 0, 0, 0.25);
+}
+
+.user-header {
+  height: 86px;
+  width: 100vw;
+  background-color: #023031;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+  font-size: 20px;
+}
+
+.navegation {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  height: 68px;
+  font-size: 20px;
+}
+
+.user-name {
+  color: #29313D;
+  font-size: 16px;
+}
+
+.user {
+  background-color: #FFFFFF;
+  border-radius: 30px;
+  display: flex;
+  padding: 5px;
+  padding-left: 1px;
+  justify-content: space-around;
+  align-items: center;
+  width: 200px;
+}
+
+.user-icon {
+  color: #2FC18C;
+  font-size: 28px;
+  margin-right: 1px;
+}
+
+.logo-header-container {
+  display: flex;
+  flex-direction: column;
+	font-size: 20px;
+}
+
+.icon-header {
+  font-size: 24px;
+	color: #2FC18C;
+	margin-left: 6px;
+}
+
+.header-logo-up {
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.header-logo-down {
+  margin-left: 30px;
+}

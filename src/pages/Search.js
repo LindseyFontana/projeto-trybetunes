@@ -51,60 +51,85 @@ class Search extends React.Component {
     }
   }
 
+  reduceAlbumName = (albumName) => {
+    const newAlbumName = albumName.slice(0, 20);
+    return `${newAlbumName}...`;
+  }
+
+  reduceArtistName = (albumName) => {
+    const newAlbumName = albumName.slice(0, 20);
+    return `${newAlbumName}...`;
+  }
+
   render() {
     const { isSerched, isLoading,
       serchedAlbums, searchText, isButtonDesabled } = this.state;
     return (
-      <div data-testid="page-search">
-        <form>
-          {isLoading
-            ? <Loading />
-            : (
-              <div>
-                <input
-                  type="text"
-                  data-testid="search-artist-input"
-                  onChange={ this.validadeSearchText }
-                />
-                <button
-                  type="submit"
-                  data-testid="search-artist-button"
-                  disabled={ isButtonDesabled }
-                  onClick={ this.getAlbums }
-                >
-                  Pesquisar
-                </button>
-              </div>
-            )}
-          <div>
-            { isSerched && serchedAlbums.length === 0 && <NotFound /> }
+      <form data-testid="page-search" className="conteiner-search">
+        {isLoading
+          ? <Loading />
+          : (
+            <div className="search-container">
+              <input
+                type="text"
+                data-testid="search-artist-input"
+                className="search-input"
+                placeholder="Nome do artista"
+                onChange={ this.validadeSearchText }
+              />
+              <button
+                type="submit"
+                data-testid="search-artist-button"
+                className="button-search"
+                disabled={ isButtonDesabled }
+                onClick={ this.getAlbums }
+              >
+                Pesquisar
+              </button>
+            </div>
+          )}
+        <div>
+          { isSerched && serchedAlbums.length === 0 && <NotFound /> }
 
-            {serchedAlbums.length > 0
+          {serchedAlbums.length > 0
             && (
-              <div>
-                <h1>
-                  { `Resultado de álbuns de: ${searchText}`}
+              <div className="search-result">
+                <h1 className="search-title">
+                  { `Resultado de álbuns de Artista: ${searchText}`}
                 </h1>
                 <div className="searched-albuns">
                   {serchedAlbums.map((album) => (
-                    <div key={ album.collectionName }>
+                    <div key={ album.collectionName } className="album">
                       <Link
                         data-testid={ `link-to-album-${album.collectionId}` }
                         to={ `/album/${album.collectionId}` }
                       >
-                        <img src={ album.artworkUrl100 } alt="Album" />
-                        <h2 className="collection-name">{ album.collectionName }</h2>
-                        <p>{ album.artistName }</p>
+                        <img
+                          src={ album.artworkUrl100 }
+                          alt="Album"
+                          className="img-album"
+                        />
+                        <h2
+                          className="collection-name"
+                        >
+                          { album.collectionName.length > 20
+                            ? this.reduceAlbumName(album.collectionName)
+                            : album.collectionName }
+                        </h2>
+                        <p className="artist-name">
+                          { album.artistName.length > 20
+                            ? this.reduceArtistName(album.artistName)
+                            : album.artistName }
+                        </p>
                       </Link>
                     </div>
                   ))}
                 </div>
               </div>
             )}
-          </div>
+        </div>
 
-        </form>
-      </div>
+      </form>
     );
   }
 }
