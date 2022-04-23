@@ -8,9 +8,61 @@ import Profile from './pages/Profile';
 import ProfileEdit from './pages/ProfileEdit';
 import NotFound from './pages/NotFound';
 import Header from './pages/components/Header';
+import { getFavoriteSongs, removeSong, addSong } from './services/favoriteSongsAPI';
 
 class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      isLoading: false,
+      favoriteSongs: [],
+    };
+  }
+
+  componentDidMount = async () => {
+    const favoriteSongs = await getFavoriteSongs();
+    favoriteSongs.forEach((song) => {
+      this.setState((prevState) => ({
+        isLoading: false,
+        favoriteSongs: [...prevState.favoriteSongs, song],
+      }));
+    });
+  }
+
+  updateFavoriteSongs = async ({ target }) => {
+    const { favoriteSongs } = this.state;
+    const clickedSong = favoriteSongs
+      .find((music) => music.trackId === parseInt(target.id, 10));
+    this.setState({
+      isLoading: true,
+    });
+    if (clickedSong) {
+      await this.removeFavoriteSong(clickedSong);
+    } else {
+      await this.saveFavoriteSong(clickedSong);
+    }
+  }
+
+  saveFavoriteSong = async (song) => {
+    await addSong(song);
+    const songs = await getFavoriteSongs();
+    this.setState({
+      isLoading: false,
+      favoriteSongs: songs,
+    });
+  }
+
+  removeFavoriteSong = async (song) => {
+    await removeSong(song);
+    const songs = await getFavoriteSongs();
+    this.setState({
+      isLoading: false,
+      favoriteSongs: songs,
+    });
+  }
+
   render() {
+    const { favoriteSongs, isLoading } = this.state;
     return (
       <BrowserRouter>
         <Switch>
@@ -36,7 +88,12 @@ class App extends React.Component {
 
           <Route exact path="/favorites">
             <Header />
-            <Favorites />
+            <Favorites
+              removeFavoriteSong={ this.removeFavoriteSong }
+              updateFavoriteSongs={ this.updateFavoriteSongs }
+              favoriteSongs={ favoriteSongs }
+              isLoading={ isLoading }
+            />
           </Route>
 
           <Route exact path="/profile">
