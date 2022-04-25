@@ -1,6 +1,6 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import { addSong, removeSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
+import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
 import './style/MusicCard.css';
 
@@ -13,44 +13,17 @@ class MusicCard extends React.Component {
   }
 
   componentDidMount = async () => {
-    const favoritedSongs = await getFavoriteSongs();
-    favoritedSongs.forEach((song) => {
+    const favoriteSongs = await getFavoriteSongs();
+    favoriteSongs.forEach((song) => {
       this.setState((prevState) => ({
-        favoriteCards: [...prevState.favoriteCards, song.trackId],
+        favoriteCards: [...prevState.favoriteCards, song],
       }));
     });
   }
 
-  // saveFavoriteSong = async (song) => {
-  //   await addSong(song);
-  //   this.setState((prevState) => ({
-  //     isLoading: false,
-  //     favoriteCards: [...prevState.favoriteCards, song.trackId],
-  //   }));
-  // }
-
-  // removeFavoriteSong = async (song) => {
-  //   await removeSong(song);
-  //   this.setState((prevState) => ({
-  //     isLoading: false,
-  //     favoriteCards: [...prevState.favoriteCards.filter((id) => song.trackId !== id)],
-  //   }));
-  // }
-
-  updateFavorites = (music) => {
-    const { updateFavoriteSongs,
-      favoriteSongs,
-      removeFavoriteSong,
-      saveFavoriteSong } = this.props;
-    if (!favoriteSongs.includes(music.trackId)) {
-      saveFavoriteSong(music);
-    } else {
-      removeFavoriteSong(music);
-    }
-  }
-
   render() {
-    const { musicsList, updateFavoriteSongs, favoriteSongs, isLoading} = this.props;
+    const { musicsList, updateFavoriteSongs, isLoading} = this.props;
+    const { favoriteCards } = this.state;
     return (
       <div>
         {isLoading
@@ -78,8 +51,8 @@ class MusicCard extends React.Component {
                     id={ `${music.trackId}` }
                     name="checkbox-music"
                     data-testid={ `checkbox-music-${music.trackId}` }
-                    onClick={ () => this.updateFavorites(music) }
-                    checked={ favoriteSongs.includes(music.trackId) }
+                    onClick={ () => updateFavoriteSongs(event, music) }
+                    checked={ favoriteCards.includes(music.trackId) }
                   />
                 </label>
               </div>

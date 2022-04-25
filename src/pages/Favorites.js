@@ -1,19 +1,40 @@
 import React from 'react';
 import Loading from './Loading';
 import './style/Favorites.css';
+import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class Favorites extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      favoriteSongs: [],
+    };
+  }
+
   reduceAlbumName = (albumName) => {
     const newAlbumName = albumName.slice(0, 20);
     return `${newAlbumName}...`;
   }
 
-  render() {
-    const { updateFavoriteSongs,
-      isLoading,
+  componentDidMount = async () => {
+    const favoriteSongs = await getFavoriteSongs();
+    this.setState({
       favoriteSongs,
-    } = this.props;
+    });
+  }
 
+  update = async (event) => {
+    const { updateFavoriteSongs } = this.props;
+    await updateFavoriteSongs(event);
+    const favoriteSongs = await getFavoriteSongs();
+    this.setState({
+      favoriteSongs,
+    });
+  }
+
+  render() {
+    const { isLoading } = this.props;
+    const { favoriteSongs } = this.state;
     return (
       <div data-testid="page-favorites" className="page-favorites">
         <p>Músicas Favoritas: </p>
@@ -54,8 +75,8 @@ class Favorites extends React.Component {
                       id={ `${music.trackId}` }
                       name="favorite-music"
                       data-testid={ `checkbox-music-${music.trackId}` }
-                      onClick={ updateFavoriteSongs }
-                      checked
+                      onClick={ this.update }
+                      checked={ favoriteSongs.includes(music.trackId) }
                     />
                   </label>
                 </div>

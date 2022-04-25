@@ -35,11 +35,8 @@ class Album extends React.Component {
       updateFavoriteSongs,
       favoriteSongs,
       isLoading,
-      saveFavoriteSong,
-      removeFavoriteSong,
     } = this.props;
     const { musics, album } = this.state;
-    console.log(`musics ${musics}`);
     return (
       <div data-testid="page-album">
         { musics.length > 0
@@ -56,8 +53,6 @@ class Album extends React.Component {
                 updateFavoriteSongs={ updateFavoriteSongs }
                 favoriteSongs={ favoriteSongs }
                 isLoading={ isLoading }
-                saveFavoriteSong={ saveFavoriteSong }
-                removeFavoriteSong={ removeFavoriteSong }
               />
             </div>
           </div>
