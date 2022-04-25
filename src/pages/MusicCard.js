@@ -8,7 +8,6 @@ class MusicCard extends React.Component {
   constructor() {
     super();
     this.state = {
-      isLoading: false,
       favoriteCards: [],
     };
   }
@@ -17,80 +16,72 @@ class MusicCard extends React.Component {
     const favoritedSongs = await getFavoriteSongs();
     favoritedSongs.forEach((song) => {
       this.setState((prevState) => ({
-        isLoading: false,
         favoriteCards: [...prevState.favoriteCards, song.trackId],
       }));
     });
   }
 
-  updateFavoriteSongs = async (event) => {
-    const { musicsList } = this.props;
-    const { favoriteCards } = this.state;
-    const clickedSong = musicsList
-      .find((music) => music.trackId === parseInt(event.target.id, 10));
-    console.log(clickedSong)
-    this.setState({
-      isLoading: true,
-    });
-    if (!favoriteCards.includes(clickedSong.trackId)) {
-      await this.saveFavoriteSong(clickedSong);
+  // saveFavoriteSong = async (song) => {
+  //   await addSong(song);
+  //   this.setState((prevState) => ({
+  //     isLoading: false,
+  //     favoriteCards: [...prevState.favoriteCards, song.trackId],
+  //   }));
+  // }
+
+  // removeFavoriteSong = async (song) => {
+  //   await removeSong(song);
+  //   this.setState((prevState) => ({
+  //     isLoading: false,
+  //     favoriteCards: [...prevState.favoriteCards.filter((id) => song.trackId !== id)],
+  //   }));
+  // }
+
+  updateFavorites = (music) => {
+    const { updateFavoriteSongs,
+      favoriteSongs,
+      removeFavoriteSong,
+      saveFavoriteSong } = this.props;
+    if (!favoriteSongs.includes(music.trackId)) {
+      saveFavoriteSong(music);
     } else {
-      await this.removeFavoriteSong(clickedSong);
+      removeFavoriteSong(music);
     }
   }
 
-  saveFavoriteSong = async (song) => {
-    await addSong(song);
-    this.setState((prevState) => ({
-      isLoading: false,
-      favoriteCards: [...prevState.favoriteCards, song.trackId],
-    }));
-  }
-
-  removeFavoriteSong = async (song) => {
-    await removeSong(song);
-    this.setState((prevState) => ({
-      isLoading: false,
-      favoriteCards: [...prevState.favoriteCards.filter((id) => song.trackId !== id)],
-    }));
-  }
-
   render() {
-    const { musicsList } = this.props;
-    const { favoriteCards, isLoading } = this.state;
+    const { musicsList, updateFavoriteSongs, favoriteSongs, isLoading} = this.props;
     return (
-      <div className="favorite-music">
+      <div>
         {isLoading
           ? <Loading />
           : musicsList
             .map((music, index) => (
-              <div key={ index } className="music">
+              <div key={ index } className="music-container">
                 <p className="music-name">{music.musicName}</p>
-                <div className="audio-favorited">
-                  <audio
-                    className="audio"
-                    data-testid="audio-component"
-                    src={ music.preview }
-                    controls
-                  >
-                    <track kind="captions" />
-                    {' '}
-                    O seu navegador não suporta o elemento
-                    {' '}
-                    <code>audio</code>
-                    ..
-                  </audio>
-                  <label htmlFor="favorite-music" className="favorited">
-                    <input
-                      type="checkbox"
-                      id={ `${music.trackId}` }
-                      name="favorite-music"
-                      data-testid={ `checkbox-music-${music.trackId}` }
-                      onClick={ this.updateFavoriteSongs }
-                      checked={ favoriteCards.includes(music.trackId) }
-                    />
-                  </label>
-                </div>
+                <audio
+                  className="audio"
+                  data-testid="audio-component"
+                  src={ music.preview }
+                  controls
+                >
+                  <track kind="captions" />
+                  {' '}
+                  O seu navegador não suporta o elemento
+                  {' '}
+                  <code>audio</code>
+                  ..
+                </audio>
+                <label htmlFor="checkbox-music" className="checkbox-music">
+                  <input
+                    type="checkbox"
+                    id={ `${music.trackId}` }
+                    name="checkbox-music"
+                    data-testid={ `checkbox-music-${music.trackId}` }
+                    onClick={ () => this.updateFavorites(music) }
+                    checked={ favoriteSongs.includes(music.trackId) }
+                  />
+                </label>
               </div>
             ))}
       </div>

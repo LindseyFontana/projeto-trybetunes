@@ -31,8 +31,15 @@ class Album extends React.Component {
   }
 
   render() {
+    const {
+      updateFavoriteSongs,
+      favoriteSongs,
+      isLoading,
+      saveFavoriteSong,
+      removeFavoriteSong,
+    } = this.props;
     const { musics, album } = this.state;
-    console.log(`musics ${musics}`)
+    console.log(`musics ${musics}`);
     return (
       <div data-testid="page-album">
         { musics.length > 0
@@ -44,7 +51,14 @@ class Album extends React.Component {
               <p data-testid="artist-name">{ album.artistName }</p>
             </div>
             <div>
-              <MusicCard musicsList={ musics } />
+              <MusicCard
+                musicsList={ musics }
+                updateFavoriteSongs={ updateFavoriteSongs }
+                favoriteSongs={ favoriteSongs }
+                isLoading={ isLoading }
+                saveFavoriteSong={ saveFavoriteSong }
+                removeFavoriteSong={ removeFavoriteSong }
+              />
             </div>
           </div>
         ) }

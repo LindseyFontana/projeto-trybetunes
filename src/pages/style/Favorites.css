@@ -1,0 +1,30 @@
+.page-favorites > p {
+	margin-top: 70px;
+	display: flex;
+	align-items: flex-start;
+	margin-bottom: 15px;
+	font-size: 18px;
+	color: #001813;
+}
+.page-favorites {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.favorite-music {
+  width: 656px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #E1E5EB;;
+}
+
+.favorite-music-image {
+	width: 61px;
+	border-radius: 50px;
+}

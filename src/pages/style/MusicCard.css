@@ -5,36 +5,8 @@
   margin-top: 70px;
 }
 
-.music {
-  align-items: center;
-  border-bottom: 1px solid rgb(224, 224, 224);
+.music-container {
   display: flex;
-  flex-direction: row;
+  align-items: center;
   justify-content: space-between;
-  margin-bottom: 5px;
-  margin-left: 50px;
-  padding: 8px;
-  width: 500px;
-}
-
-.audio-favorited {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-}
-
-.page-favorites > p {
-  font-size: 24px;
-  display: flex;
-  flex-direction: column;
-  margin-left: 396px;
-  margin-top: 70px;
-  margin-bottom: 26px;
-  color: #001813;
-}
-
-.favorite-music {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }

@@ -1,23 +1,41 @@
 import React from 'react';
-import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
+import './style/Favorites.css';
 
 class Favorites extends React.Component {
+  reduceAlbumName = (albumName) => {
+    const newAlbumName = albumName.slice(0, 20);
+    return `${newAlbumName}...`;
+  }
+
   render() {
-    const { removeFavoriteSong, updateFavoriteSongs, isLoading, favoriteSongs } = this.props;
+    const { updateFavoriteSongs,
+      isLoading,
+      favoriteSongs,
+    } = this.props;
+
     return (
       <div data-testid="page-favorites" className="page-favorites">
         <p>Músicas Favoritas: </p>
-        <div className="favorite-music">
+        <div className="favorite-music-container">
           {isLoading
             ? <Loading />
             : favoriteSongs
               .map((music, index) => (
-                <div key={ index } className="music">
-                  <p className="music-name">{music.musicName}</p>
-                  <div className="audio-favorited">
+                <div key={ index } className="favorite-music">
+                  <img
+                    src={ music.image }
+                    alt="Capa album"
+                    className="favorite-music-image"
+                  />
+                  <p className="favorite-music-name">
+                    { music.musicName.length > 20
+                      ? this.reduceAlbumName(music.musicName)
+                      : music.musicName }
+                  </p>
+                  <div className="favorite-music-audio">
                     <audio
-                      className="audio"
+                      className="music-audio"
                       data-testid="audio-component"
                       src={ music.preview }
                       controls
@@ -29,17 +47,17 @@ class Favorites extends React.Component {
                       <code>audio</code>
                       ..
                     </audio>
-                    <label htmlFor="favorite-music" className="favorited">
-                      <input
-                        type="checkbox"
-                        id={ `${music.trackId}` }
-                        name="favorite-music"
-                        data-testid={ `checkbox-music-${music.trackId}` }
-                        onClick={ updateFavoriteSongs }
-                        checked
-                      />
-                    </label>
                   </div>
+                  <label htmlFor="favorite-music" className="favorited">
+                    <input
+                      type="checkbox"
+                      id={ `${music.trackId}` }
+                      name="favorite-music"
+                      data-testid={ `checkbox-music-${music.trackId}` }
+                      onClick={ updateFavoriteSongs }
+                      checked
+                    />
+                  </label>
                 </div>
               ))}
         </div>

@@ -15,7 +15,7 @@ class App extends React.Component {
     super();
     this.state = {
       isLoading: false,
-      favoriteSongs: [],
+      // favoriteSongs: [],
     };
   }
 
@@ -24,31 +24,37 @@ class App extends React.Component {
     favoriteSongs.forEach((song) => {
       this.setState((prevState) => ({
         isLoading: false,
-        favoriteSongs: [...prevState.favoriteSongs, song],
+        // favoriteSongs: [...prevState.favoriteSongs, song],
       }));
     });
   }
 
-  updateFavoriteSongs = async ({ target }) => {
-    const { favoriteSongs } = this.state;
+  updateFavoriteSongs = async (event) => {
+    const favoriteSongs = await getFavoriteSongs();
+    this.setState(({
+      isLoading: false,
+      // favoriteSongs: [favoriteSongs],
+    }));
+
     const clickedSong = favoriteSongs
-      .find((music) => music.trackId === parseInt(target.id, 10));
+      .find((music) => music.trackId === parseInt(event.target.id, 10));
     this.setState({
       isLoading: true,
     });
     if (clickedSong) {
       await this.removeFavoriteSong(clickedSong);
-    } else {
-      await this.saveFavoriteSong(clickedSong);
     }
+    // } else {
+    //   await this.saveFavoriteSong(musicToSave);
+    // }
   }
 
   saveFavoriteSong = async (song) => {
     await addSong(song);
-    const songs = await getFavoriteSongs();
+    // const songs = await getFavoriteSongs();
     this.setState({
       isLoading: false,
-      favoriteSongs: songs,
+      // favoriteSongs: songs,
     });
   }
 
@@ -57,7 +63,7 @@ class App extends React.Component {
     const songs = await getFavoriteSongs();
     this.setState({
       isLoading: false,
-      favoriteSongs: songs,
+      // favoriteSongs: songs,
     });
   }
 
@@ -82,7 +88,14 @@ class App extends React.Component {
             render={ (props) => (
               <>
                 <Header />
-                <Album { ...props } />
+                <Album
+                  { ...props }
+                  saveFavoriteSong={ this.saveFavoriteSong }
+                  removeFavoriteSong={ this.removeFavoriteSong }
+                  updateFavoriteSongs={ this.updateFavoriteSongs }
+                  favoriteSongs={ favoriteSongs }
+                  isLoading={ isLoading }
+                />
               </>) }
           />
 
@@ -93,6 +106,7 @@ class App extends React.Component {
               updateFavoriteSongs={ this.updateFavoriteSongs }
               favoriteSongs={ favoriteSongs }
               isLoading={ isLoading }
+              getFavoriteSongsFromStorage={ this.getFavoriteSongsFromStorage }
             />
           </Route>
 
