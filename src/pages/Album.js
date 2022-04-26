@@ -67,6 +67,9 @@ Album.propTypes = {
     params: PropTypes.shape({
       id: PropTypes.string.isRequired,
     }) }).isRequired,
+  updateFavoriteSongs: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  favoriteSongs: PropTypes.arrayOf.isRequired,
 };
 
 export default Album;

@@ -8,6 +8,7 @@ class Favorites extends React.Component {
     super();
     this.state = {
       favoriteSongs: [],
+      isLoading: false,
     };
   }
 
@@ -24,17 +25,20 @@ class Favorites extends React.Component {
   }
 
   update = async (event) => {
+    this.setState({
+      isLoading: true,
+    });
     const { updateFavoriteSongs } = this.props;
     await updateFavoriteSongs(event);
     const favoriteSongs = await getFavoriteSongs();
     this.setState({
       favoriteSongs,
+      isLoading: false,
     });
   }
 
   render() {
-    const { isLoading } = this.props;
-    const { favoriteSongs } = this.state;
+    const { favoriteSongs, isLoading } = this.state;
     return (
       <div data-testid="page-favorites" className="page-favorites">
         <p>Músicas Favoritas: </p>
@@ -76,7 +80,7 @@ class Favorites extends React.Component {
                       name="favorite-music"
                       data-testid={ `checkbox-music-${music.trackId}` }
                       onClick={ this.update }
-                      checked={ favoriteSongs.includes(music.trackId) }
+                      checked={ !favoriteSongs.includes(music.trackId) }
                     />
                   </label>
                 </div>

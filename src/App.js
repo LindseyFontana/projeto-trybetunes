@@ -15,29 +15,21 @@ class App extends React.Component {
     super();
     this.state = {
       isLoading: false,
+      favoriteSongs: [],
     };
-  }
-
-  componentDidMount = async () => {
-    const favoriteSongs = await getFavoriteSongs();
-    favoriteSongs.forEach((song) => {
-      this.setState((prevState) => ({
-        isLoading: false,
-      }));
-    });
   }
 
   updateFavoriteSongs = async (event, musicToSave) => {
     const favoriteSongs = await getFavoriteSongs();
     this.setState({
       isLoading: true,
+      favoriteSongs,
     });
+
     if (favoriteSongs) {
       const clickedSong = favoriteSongs
         .find((music) => music.trackId === parseInt(event.target.id, 10));
-      this.setState({
-        isLoading: false,
-      });
+
       if (clickedSong) {
         await this.removeFavoriteSong(clickedSong);
       } else {
@@ -50,15 +42,19 @@ class App extends React.Component {
 
   saveFavoriteSong = async (song) => {
     await addSong(song);
+    const favoriteSongs = await getFavoriteSongs();
     this.setState({
       isLoading: false,
+      favoriteSongs,
     });
   }
 
   removeFavoriteSong = async (song) => {
     await removeSong(song);
+    const favoriteSongs = await getFavoriteSongs();
     this.setState({
       isLoading: false,
+      favoriteSongs,
     });
   }
 
@@ -86,6 +82,7 @@ class App extends React.Component {
                 <Album
                   { ...props }
                   updateFavoriteSongs={ this.updateFavoriteSongs }
+                  favoriteSongs={ favoriteSongs }
                   isLoading={ isLoading }
                 />
               </>) }
@@ -95,6 +92,7 @@ class App extends React.Component {
             <Header />
             <Favorites
               updateFavoriteSongs={ this.updateFavoriteSongs }
+              favoriteSongs={ favoriteSongs }
               isLoading={ isLoading }
             />
           </Route>
