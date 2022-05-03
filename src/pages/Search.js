@@ -4,6 +4,7 @@ import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Loading from './Loading';
 import NotFound from './NotFound';
 import './style/Search.css';
+import { AiOutlineSearch } from "react-icons/ai";
 
 class Search extends React.Component {
   constructor(props) {
@@ -74,13 +75,13 @@ class Search extends React.Component {
                 type="text"
                 data-testid="search-artist-input"
                 className="search-input"
-                placeholder="Nome do artista"
+                placeholder={ "Nome do artista" <AiOutlineSearch /> }
                 onChange={ this.validadeSearchText }
               />
               <button
                 type="submit"
                 data-testid="search-artist-button"
-                className="button-search"
+                className="search-button"
                 disabled={ isButtonDesabled }
                 onClick={ this.getAlbums }
               >

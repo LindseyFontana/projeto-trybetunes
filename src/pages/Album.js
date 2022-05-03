@@ -35,17 +35,27 @@ class Album extends React.Component {
       updateFavoriteSongs,
       favoriteSongs,
       isLoading,
+      reduceAlbumName,
     } = this.props;
+
     const { musics, album } = this.state;
     return (
       <div data-testid="page-album">
         { musics.length > 0
         && (
           <div className="music-card">
-            <div className="album">
-              <img className="album-image" src={ album.artworkUrl100 } alt="Album" />
-              <h2 data-testid="album-name">{ album.collectionName }</h2>
-              <p data-testid="artist-name">{ album.artistName }</p>
+            <div className="album-musics">
+              <img
+                className="album-musics-image"
+                src={ album.artworkUrl100 }
+                alt="Album"
+              />
+              <h2 data-testid="album-name" className="album-musics-name">
+                { album.collectionName }
+              </h2>
+              <p data-testid="artist-name" className="artist-musics-name">
+                { album.artistName }
+              </p>
             </div>
             <div>
               <MusicCard
@@ -53,6 +63,7 @@ class Album extends React.Component {
                 updateFavoriteSongs={ updateFavoriteSongs }
                 favoriteSongs={ favoriteSongs }
                 isLoading={ isLoading }
+                reduceAlbumName={ reduceAlbumName }
               />
             </div>
           </div>

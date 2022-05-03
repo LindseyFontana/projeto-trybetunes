@@ -6,7 +6,54 @@
 }
 
 .music-container {
-  display: flex;
   align-items: center;
+  border-bottom: 1px solid #e1e5eb;
+  display: flex;
   justify-content: space-between;
+  margin-bottom: 10px;
+  width: 600px;
+  padding-bottom: 15px;
+}
+
+.album-musics {
+  border-color: white;
+  box-shadow: none;
+  margin-right: 50px;
+}
+
+.album-musics-image {
+  border-radius: 5px;
+  margin-bottom: 15px;
+  width: 216px;
+}
+
+.album-musics-name {
+  width: 214px;
+  color: #023031;
+  font-size: 26px;
+  margin-bottom: 6px;
+}
+
+.artist-musics-name {
+  font-size: 16px;
+  padding: 0;
+}
+
+.checkbox-music {
+
+  /* margin-left: 100px; */
+}
+
+.music-name {
+  width: 200px;
+  /* margin-right: 30px; */
+}
+
+.music-audio {
+  align-self: center;
+  display: flex;
+  justify-content: flex-end;
+  width: 300px;
+  margin-left: 50px;
+  margin-right: 50px;
 }

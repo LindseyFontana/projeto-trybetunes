@@ -14,17 +14,22 @@
 }
 
 .favorite-music {
-  width: 656px;
+  width: 676px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin-top: 20px;
   padding-bottom: 15px;
-  border-bottom: 1px solid #E1E5EB;;
+  border-bottom: 1px solid #E1E5EB;
 }
 
 .favorite-music-image {
 	width: 61px;
 	border-radius: 50px;
+	margin-right: 15px;
+}
+
+.favorite-music-name {
+	width: 200px;
 }

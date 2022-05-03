@@ -12,10 +12,7 @@ class Favorites extends React.Component {
     };
   }
 
-  reduceAlbumName = (albumName) => {
-    const newAlbumName = albumName.slice(0, 20);
-    return `${newAlbumName}...`;
-  }
+
 
   componentDidMount = async () => {
     const favoriteSongs = await getFavoriteSongs();
@@ -28,7 +25,11 @@ class Favorites extends React.Component {
     this.setState({
       isLoading: true,
     });
-    const { updateFavoriteSongs } = this.props;
+    const {
+      updateFavoriteSongs,
+      reduceAlbumName,
+    } = this.props;
+
     await updateFavoriteSongs(event);
     const favoriteSongs = await getFavoriteSongs();
     this.setState({
@@ -39,6 +40,7 @@ class Favorites extends React.Component {
 
   render() {
     const { favoriteSongs, isLoading } = this.state;
+    const { reduceAlbumName } = this.props;
     return (
       <div data-testid="page-favorites" className="page-favorites">
         <p>Músicas Favoritas: </p>
@@ -55,7 +57,7 @@ class Favorites extends React.Component {
                   />
                   <p className="favorite-music-name">
                     { music.musicName.length > 20
-                      ? this.reduceAlbumName(music.musicName)
+                      ? reduceAlbumName(music.musicName)
                       : music.musicName }
                   </p>
                   <div className="favorite-music-audio">

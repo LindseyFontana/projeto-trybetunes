@@ -5,17 +5,26 @@ import './style/MusicCard.css';
 
 class MusicCard extends React.Component {
   render() {
-    const { musicsList, updateFavoriteSongs, isLoading, favoriteSongs } = this.props;
+    const { musicsList,
+      updateFavoriteSongs,
+      isLoading,
+      favoriteSongs,
+      reduceAlbumName,
+    } = this.props;
     return (
-      <div>
+      <div className="musics-album">
         {isLoading
           ? <Loading />
           : musicsList
             .map((music, index) => (
               <div key={ index } className="music-container">
-                <p className="music-name">{music.musicName}</p>
+                <p className="music-name">
+                  { music.musicName.length > 20
+                    ? reduceAlbumName(music.musicName)
+                    : music.musicName }
+                </p>
                 <audio
-                  className="audio"
+                  className="music-audio"
                   data-testid="audio-component"
                   src={ music.preview }
                   controls
@@ -35,7 +44,7 @@ class MusicCard extends React.Component {
                     data-testid={ `checkbox-music-${music.trackId}` }
                     onClick={ () => updateFavoriteSongs(event, music) }
                     checked={ favoriteSongs
-                      .some((song) => song.trackId === music.trackId)}
+                      .some((song) => song.trackId === music.trackId) }
                   />
                 </label>
               </div>

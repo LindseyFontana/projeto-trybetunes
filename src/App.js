@@ -19,6 +19,11 @@ class App extends React.Component {
     };
   }
 
+  reduceAlbumName = (albumName) => {
+    const newAlbumName = albumName.slice(0, 20);
+    return `${newAlbumName}...`;
+  }
+
   updateFavoriteSongs = async (event, musicToSave) => {
     const favoriteSongs = await getFavoriteSongs();
     this.setState({
@@ -84,6 +89,7 @@ class App extends React.Component {
                   updateFavoriteSongs={ this.updateFavoriteSongs }
                   favoriteSongs={ favoriteSongs }
                   isLoading={ isLoading }
+                  reduceAlbumName={ this.reduceAlbumName }
                 />
               </>) }
           />
@@ -94,6 +100,7 @@ class App extends React.Component {
               updateFavoriteSongs={ this.updateFavoriteSongs }
               favoriteSongs={ favoriteSongs }
               isLoading={ isLoading }
+              reduceAlbumName={ this.reduceAlbumName }
             />
           </Route>
 
