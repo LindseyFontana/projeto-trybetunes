@@ -16,7 +16,6 @@ class ProfileEdit extends React.Component {
 
   componentDidMount = async () => {
     const localStorage = await getUser();
-    console.log(localStorage);
     this.setState({
       ...localStorage,
     });

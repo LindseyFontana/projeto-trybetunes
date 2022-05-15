@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Login from './pages/Login';
-import Search from './pages/Search';
 import Album from './pages/Album';
+import Header from './pages/components/Header';
 import Favorites from './pages/Favorites';
+import Login from './pages/Login';
+import NotFound from './pages/NotFound';
 import Profile from './pages/Profile';
 import ProfileEdit from './pages/ProfileEdit';
-import NotFound from './pages/NotFound';
-import Header from './pages/components/Header';
-import { getFavoriteSongs, removeSong, addSong } from './services/favoriteSongsAPI';
+import Search from './pages/Search';
+import { addSong, getFavoriteSongs, removeSong } from './services/favoriteSongsAPI';
 
 class App extends React.Component {
   constructor() {
@@ -72,10 +72,10 @@ class App extends React.Component {
 
   render() {
     const { favoriteSongs, isLoading } = this.state;
+
     return (
       <BrowserRouter>
         <Switch>
-
           <Route exact path="/">
             <Login />
           </Route>
@@ -98,17 +98,20 @@ class App extends React.Component {
                   isLoading={ isLoading }
                   reduceAlbumName={ this.reduceAlbumName }
                 />
-              </>) }
+              </>
+            ) }
           />
 
           <Route exact path="/favorites">
-            <Header />
-            <Favorites
-              updateFavoriteSongs={ this.updateFavoriteSongs }
-              favoriteSongs={ favoriteSongs }
-              isLoading={ isLoading }
-              reduceAlbumName={ this.reduceAlbumName }
-            />
+            <>
+              <Header />
+              <Favorites
+                updateFavoriteSongs={ this.updateFavoriteSongs }
+                favoriteSongs={ favoriteSongs }
+                isLoading={ isLoading }
+                reduceAlbumName={ this.reduceAlbumName }
+              />
+            </>
           </Route>
 
           <Route
@@ -123,8 +126,11 @@ class App extends React.Component {
           />
 
           <Route exact path="/profile/edit">
-            <Header />
-            <ProfileEdit />
+            <>
+              <Header />
+              <ProfileEdit handleHeader={ this.handleHeader } />
+            </>
+
           </Route>
           <Route exact path="*">
             <NotFound />
@@ -132,7 +138,6 @@ class App extends React.Component {
 
         </Switch>
       </BrowserRouter>
-
     );
   }
 }

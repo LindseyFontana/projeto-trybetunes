@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useHistory } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
 import { BsHeadphones } from 'react-icons/bs';
 import { getUser } from '../../services/userAPI';

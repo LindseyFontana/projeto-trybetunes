@@ -12,13 +12,7 @@
   font-weight: 700;
 }
 
-.link:hover {
-  background: #036B52;
-  color: #FFFFFF;
-  font-weight: 700;
-}
-
-.link:active {
+.link-active {
   background: #036B52;
   color: #FFFFFF;
   font-weight: 700;
