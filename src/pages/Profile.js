@@ -45,7 +45,9 @@ class Profile extends React.Component {
           </div>
           <label htmlFor="profile-name" className="profile-label">
             Nome
-            <p className="user-infos" id="profile-name">{userInfos.name}</p>
+            <p className="user-infos" id="profile-name">
+              {userInfos.name}
+            </p>
           </label>
           <labe
             htmlFor="profile-email"
@@ -59,6 +61,7 @@ class Profile extends React.Component {
             className="profile-label"
           >
             Descrição
+            <p id="profile-description">{userInfos.description}</p>
           </label>
         </div>
       </div>

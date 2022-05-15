@@ -8,7 +8,6 @@ import Profile from './pages/Profile';
 import ProfileEdit from './pages/ProfileEdit';
 import NotFound from './pages/NotFound';
 import Header from './pages/components/Header';
-import Provider from './contextApi/Provider';
 import { getFavoriteSongs, removeSong, addSong } from './services/favoriteSongsAPI';
 
 class App extends React.Component {
@@ -75,65 +74,63 @@ class App extends React.Component {
     const { favoriteSongs, isLoading } = this.state;
     return (
       <BrowserRouter>
-        <Provider>
-          <Switch>
+        <Switch>
 
-            <Route exact path="/">
-              <Login />
-            </Route>
+          <Route exact path="/">
+            <Login />
+          </Route>
 
-            <Route exact path="/search">
-              <Header />
-              <Search />
-            </Route>
+          <Route exact path="/search">
+            <Header />
+            <Search />
+          </Route>
 
-            <Route
-              exact
-              path="/album/:id"
-              render={ (props) => (
-                <>
-                  <Header />
-                  <Album
-                    { ...props }
-                    updateFavoriteSongs={ this.updateFavoriteSongs }
-                    favoriteSongs={ favoriteSongs }
-                    isLoading={ isLoading }
-                    reduceAlbumName={ this.reduceAlbumName }
-                  />
-                </>) }
+          <Route
+            exact
+            path="/album/:id"
+            render={ (props) => (
+              <>
+                <Header />
+                <Album
+                  { ...props }
+                  updateFavoriteSongs={ this.updateFavoriteSongs }
+                  favoriteSongs={ favoriteSongs }
+                  isLoading={ isLoading }
+                  reduceAlbumName={ this.reduceAlbumName }
+                />
+              </>) }
+          />
+
+          <Route exact path="/favorites">
+            <Header />
+            <Favorites
+              updateFavoriteSongs={ this.updateFavoriteSongs }
+              favoriteSongs={ favoriteSongs }
+              isLoading={ isLoading }
+              reduceAlbumName={ this.reduceAlbumName }
             />
+          </Route>
 
-            <Route exact path="/favorites">
-              <Header />
-              <Favorites
-                updateFavoriteSongs={ this.updateFavoriteSongs }
-                favoriteSongs={ favoriteSongs }
-                isLoading={ isLoading }
-                reduceAlbumName={ this.reduceAlbumName }
-              />
-            </Route>
+          <Route
+            exact
+            path="/profile"
+            render={ (props) => (
+              <>
+                <Header />
+                <Profile { ...props } />
+              </>
+            ) }
+          />
 
-            <Route
-              exact
-              path="/profile"
-              render={ (props) => (
-                <>
-                  <Header />
-                  <Profile { ...props } />
-                </>
-              ) }
-            />
+          <Route exact path="/profile/edit">
+            <Header />
+            <ProfileEdit />
+          </Route>
+          <Route exact path="*">
+            <NotFound />
+          </Route>
 
-            <Route exact path="/profile/edit">
-              <Header />
-              <ProfileEdit />
-            </Route>
-            <Route exact path="*">
-              <NotFound />
-            </Route>
-
-          </Switch>
-        </Provider>
+        </Switch>
       </BrowserRouter>
 
     );

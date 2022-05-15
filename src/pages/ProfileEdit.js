@@ -1,34 +1,42 @@
-import React, { useState, useContext } from 'react';
+import React from 'react';
 import { FaUserCircle } from 'react-icons/fa';
 import './style/ProfileEdit.css';
+import { getUser, updateUser } from '../services/userAPI';
 
 class ProfileEdit extends React.Component {
   constructor() {
     super();
     this.state = {
-      userInfos: {
-        image: '',
-        name: '',
-        email: '',
-        description: '',
-      },
+      image: '',
+      name: '',
+      email: '',
+      description: '',
     };
+  }
+
+  componentDidMount = async () => {
+    const localStorage = await getUser();
+    console.log(localStorage);
+    this.setState({
+      ...localStorage,
+    });
   }
 
   handleChangeInput = ({ target: { name, value } }) => {
     this.setState((prevState) => ({
-      userInfos: {
-        ...prevState.userInfos,
-        [name]: value,
-      },
+      ...prevState,
+      [name]: value,
     }));
   }
 
   handleSubmit = () => {
-    const { contextValue: { handleSubmitButton } } = useContext(Context);
+    localStorage.clear();
+    updateUser(this.state);
   }
 
   render() {
+    const { image, name, email, description } = this.state;
+
     return (
       <div data-testid="page-profile-edit">
         <div className="profile-edit-container">
@@ -39,6 +47,7 @@ class ProfileEdit extends React.Component {
               type="text"
               placeholder="Insira o link da imagem"
               name="image"
+              value={ image !== '' ? image : null }
               onChange={ this.handleChangeInput }
             />
           </div>
@@ -49,6 +58,7 @@ class ProfileEdit extends React.Component {
               type="text"
               placeholder="Insira seu nome"
               name="name"
+              value={ name !== '' ? name : null }
               onChange={ this.handleChangeInput }
             />
           </label>
@@ -62,6 +72,7 @@ class ProfileEdit extends React.Component {
               type="text"
               placeholder="usuario@usuario.com.br"
               name="email"
+              value={ email !== '' ? email : null }
               onChange={ this.handleChangeInput }
             />
           </labe>
@@ -75,6 +86,7 @@ class ProfileEdit extends React.Component {
               placeholder="Sobre mim"
               id="description"
               name="description"
+              value={ description !== '' ? description : null }
               onChange={ this.handleChangeInput }
               rows="5"
               cols="33"
