@@ -9,16 +9,19 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  font-weight: 700;
 }
 
 .link:hover {
   background: #036B52;
-  color: #FFFFFF
+  color: #FFFFFF;
+  font-weight: 700;
 }
 
 .link:active {
   background: #036B52;
-  color: #FFFFFF
+  color: #FFFFFF;
+  font-weight: 700;
 }
 
 .link-search {

@@ -114,3 +114,10 @@
   justify-content: flex-start;
   color: #09463a;
 }
+
+.search-icon {
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+
+}

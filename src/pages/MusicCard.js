@@ -4,11 +4,26 @@ import Loading from './Loading';
 import './style/MusicCard.css';
 
 class MusicCard extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      favoriteSongs: [],
+    };
+  }
+
+  // async componentDidMount() {
+  //   const { favoriteSongs } = this.props;
+  //   this.setState({
+  //     favoriteSongs,
+  //   });
+  // }
+
   render() {
+    // const { favoriteSongs } = this.state;
     const { musicsList,
       updateFavoriteSongs,
-      isLoading,
       favoriteSongs,
+      isLoading,
       reduceAlbumName,
     } = this.props;
     return (

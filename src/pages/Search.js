@@ -75,7 +75,7 @@ class Search extends React.Component {
                 type="text"
                 data-testid="search-artist-input"
                 className="search-input"
-                placeholder={ "Nome do artista" <AiOutlineSearch /> }
+                placeholder="Nome do artista"
                 onChange={ this.validadeSearchText }
               />
               <button
