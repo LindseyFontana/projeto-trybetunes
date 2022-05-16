@@ -1,5 +1,4 @@
 .page-profile-edit {
-  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,10 +10,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid #949596;
-  border-radius: 5px;
-  padding: 15px;
-  width: 40%;
+	padding: 15px;
+	border-radius: 5px;
+  margin-top: 60px;
 }
 
 .profile-edit-label {
@@ -72,6 +70,14 @@
 	font-size: 16px;
 	border: none;
 }
+
+.profile-edit-button:hover {
+	background: white;
+	color: #003BE5;
+  border: 2px solid #003BE5;
+  font-weight: 700;
+}
+
 
 .input-image {
 	outline: none;

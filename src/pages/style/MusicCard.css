@@ -28,6 +28,8 @@
 }
 
 .album-musics-name {
+  display: flex;
+  flex-wrap: wrap;
   width: 214px;
   color: #023031;
   font-size: 26px;
@@ -35,6 +37,9 @@
 }
 
 .artist-musics-name {
+  display: flex;
+  flex-wrap: wrap;
+  width: 214px;
   font-size: 16px;
   padding: 0;
 }
@@ -44,6 +49,10 @@
   display: flex;
   justify-content: flex-end;
   width: 300px;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.music-name {
+  width: 200px;
 }

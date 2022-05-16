@@ -36,6 +36,11 @@
 	margin-bottom: 10px;
 	width: 264px;
 	outline: 1px solid #949596;
+	background-color: #F0F2F5;
+}
+
+.login-name-input:hover, .login-senha-input:hover {
+	cursor: pointer;
 }
 
 .login-submit-button {
@@ -54,6 +59,7 @@
 	background-color: white;
 	border: 2px solid #003BE5;
 	color: #003BE5;
+	cursor: pointer;
 }
 
 .login-name-input:active {

@@ -54,14 +54,24 @@ class Profile extends React.Component {
             className="profile-label"
           >
             E-mail
-            <p id="profile-email">{userInfos.email}</p>
+            <p
+              id="profile-email"
+              className="user-infos"
+            >
+              {userInfos.email}
+            </p>
           </labe>
           <label
-            htmlFor="profile-email"
+            htmlFor="profile-description"
             className="profile-label"
           >
             Descrição
-            <p id="profile-description">{userInfos.description}</p>
+            <p
+              className="user-infos"
+              id="profile-description"
+            >
+              {userInfos.description}
+            </p>
           </label>
         </div>
       </div>
