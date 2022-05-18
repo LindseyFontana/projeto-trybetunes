@@ -1,43 +1,41 @@
 .button {
-	border-radius: 5px;
-	font-size: 16px;
-	cursor: pointer;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
 .submit-button {
-	background: #003BE5;
-	border: none;
-	color: white;
+  background: hsl(225, 100%, 45%);
+  border: none;
+  color: white;
 }
 
-.submit-button:hover, .edit-button{
-	background-color: white;
-	border: 2px solid #003BE5;
-	color: #003BE5;
-	font-weight: 700;
+.submit-button:hover, .edit-button {
+  background-color: white;
+  border: 2px solid hsl(225, 100%, 45%);
+  color: hsl(225, 100%, 45%);
+  font-weight: 700;
 }
 
 .search-button, .profile-button-save {
-	width: 96px;
-	height: 36px;
+  height: 36px;
+  width: 96px;
 }
 
 .login-button {
-	width: 264px;
-	height: 32px;
-	margin-top: 10px;
-	padding: 5px;
+  height: 32px;
+  margin-top: 10px;
+  padding: 5px;
+  width: 264px;
 }
 
 .edit-button {
-	height: 32px;
-	margin-top: 10px;
-	padding: 5px;
-	margin-right: 26px;
-	margin-bottom: 22px;
-	font-weight: 700;
+  font-weight: 700;
+  height: 32px;
+  margin-bottom: 22px;
+  padding: 5px;
 }
 
 .edit-button:hover {
-	background-color: #dddddd;
+  background-color: hsl(0, 0%, 87%);
 }

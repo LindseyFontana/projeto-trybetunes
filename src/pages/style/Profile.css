@@ -12,25 +12,6 @@
 	border-radius: 5px;
 }
 
-.profile-button {
-	height: 32px;
-	font-size: 16px;
-	margin-top: 10px;
-	background-color: white;
-	border: 2px solid #003BE5;
-	color: #003BE5;
-	padding: 5px;
-	margin-right: 26px;
-	margin-bottom: 22px;
-	border-radius: 5px;
-	font-weight: 700;
-}
-
-.profile-button:hover {
-	background-color: #dddddd;
-	cursor: pointer;
-}
-
 .profile-label {
 	color: #3D495C;
 	font-size: 16px;
