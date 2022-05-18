@@ -30,8 +30,9 @@ class ProfileEdit extends React.Component {
   }
 
   handleSubmit = () => {
-    localStorage.clear();
     updateUser(this.state);
+    const { history } = this.props;
+    history.push('/profile');
   }
 
   render() {
@@ -93,13 +94,13 @@ class ProfileEdit extends React.Component {
             />
           </label>
           <div className="container-button">
-            <button
-              type="submit"
-              className="profile-edit-button"
-              onClick={ this.handleSubmit }
-            >
-              Salvar
-            </button>
+            <Button
+              buttonType="submit"
+              testId="edit-button-save"
+              name="profile-button-save"
+              text="Salvar"
+              clickFunction={ this.handleSubmit }
+            />
           </div>
         </div>
       </div>

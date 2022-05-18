@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaUserCircle } from 'react-icons/fa';
+import Button from './components/Button';
 import './style/Profile.css';
 
 class Profile extends React.Component {
@@ -35,13 +36,13 @@ class Profile extends React.Component {
         <div className="profile-container">
           <div className="profile-initial">
             <FaUserCircle className="profile-icon" />
-            <button
-              className="profile-button"
-              type="button"
-              onClick={ this.handleClick }
-            >
-              Editar Perfil
-            </button>
+            <Button
+              buttonType="button"
+              testId=""
+              name="edit-button"
+              text="Editar Perfil"
+              clickFunction={ this.handleClick }
+            />
           </div>
           <label htmlFor="profile-name" className="profile-label">
             Nome

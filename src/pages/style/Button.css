@@ -1,19 +1,23 @@
-.submit-button {
-	background: #003BE5;
-	border: none;
-	color: white;
+.button {
 	border-radius: 5px;
 	font-size: 16px;
 	cursor: pointer;
 }
 
-.submit-button:hover {
+.submit-button {
+	background: #003BE5;
+	border: none;
+	color: white;
+}
+
+.submit-button:hover, .edit-button{
 	background-color: white;
 	border: 2px solid #003BE5;
 	color: #003BE5;
+	font-weight: 700;
 }
 
-.search-button {
+.search-button, .profile-button-save {
 	width: 96px;
 	height: 36px;
 }
@@ -23,4 +27,17 @@
 	height: 32px;
 	margin-top: 10px;
 	padding: 5px;
+}
+
+.edit-button {
+	height: 32px;
+	margin-top: 10px;
+	padding: 5px;
+	margin-right: 26px;
+	margin-bottom: 22px;
+	font-weight: 700;
+}
+
+.edit-button:hover {
+	background-color: #dddddd;
 }

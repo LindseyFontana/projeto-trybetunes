@@ -58,27 +58,6 @@
   height: 100px;
 }
 
-.profile-edit-button {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background: #003BE5;
-	color: white;
-	width: 96px;
-	height: 36px;
-	border-radius: 5px;
-	font-size: 16px;
-	border: none;
-}
-
-.profile-edit-button:hover {
-	background: white;
-	color: #003BE5;
-  border: 2px solid #003BE5;
-  font-weight: 700;
-}
-
-
 .input-image {
 	outline: none;
 	border: 1px solid #bfc0c2;
@@ -87,6 +66,7 @@
 	width: 206px;
 	padding: 6px;
 }
+
 .input-image:focus {
 	outline: none;
 	border: 1px solid #bfc0c2;
