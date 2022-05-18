@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import Loading from './Loading';
 import Button from './components/Button';
+import Input from './components/Input';
 import './style/Login.css';
 
 class Login extends React.Component {
@@ -63,18 +64,18 @@ class Login extends React.Component {
             ? <Loading />
             : (
               <>
-                <input
-                  type="text"
-                  data-testid="login-name-input"
-                  className="login-name-input"
-                  placeholder="Nome"
-                  onChange={ this.validateInputName }
+                <Input
+                  buttonType="text"
+                  testId="login-name-input"
+                  classStyle="login-input"
+                  placeHolder="Name"
+                  changeFunction={ this.validateInputName }
                 />
-                <input
-                  type="text"
-                  data-testid="login-name-input"
-                  className="login-name-input"
-                  placeholder="Senha"
+                <Input
+                  buttonType="text"
+                  testId="login-senha-input"
+                  classStyle="login-input"
+                  placeHolder="Senha"
                 />
                 <Button
                   buttonType="submit"

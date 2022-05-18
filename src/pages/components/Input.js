@@ -1,20 +1,16 @@
 import React from 'react';
 import '../style/Input.css';
 
-function Button({ buttonType, testId, isDesabled, clickFunction, name, text }) {
-  const style = (buttonType === 'submit' ? 'submit-button': 'edit-button');
-
+function Input({ buttonType, testId, changeFunction, classStyle, placeHolder}) {
   return (
-    <button
+    <input
       type={ buttonType }
       data-testid={ testId }
-      className={ `button ${style} ${name}` }
-      disabled={ isDesabled }
-      onClick={ clickFunction }
-    >
-      {text}
-    </button>
+      className={ `text-input ${classStyle}` }
+      placeholder={ placeHolder }
+      onChange={ changeFunction }
+    />
   );
 }
 
-export default Button;
+export default Input;

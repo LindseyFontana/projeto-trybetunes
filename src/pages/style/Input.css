@@ -1,0 +1,18 @@
+.text-input {
+	border: 1px solid #d1d3d6;
+	font-size: 16px;
+	padding: 10px;
+	cursor: pointer;
+}
+
+.login-input {
+	height: 30px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	width: 264px;
+}
+
+.login-input:focus {
+	outline: 1px solid #949596;
+	background-color: #F0F2F5;
+}
