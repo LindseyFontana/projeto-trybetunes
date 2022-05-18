@@ -6,7 +6,7 @@ function Button({ buttonType, testId, isDesabled, clickFunction, name, text }) {
     <button
       type={ buttonType }
       data-testid={ testId }
-      className={ `button ${name}` }
+      className={ `submit-button ${name}` }
       disabled={ isDesabled }
       onClick={ clickFunction }
     >

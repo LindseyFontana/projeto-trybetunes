@@ -2,6 +2,7 @@ import React from 'react';
 import { FaUserCircle } from 'react-icons/fa';
 import './style/ProfileEdit.css';
 import { getUser, updateUser } from '../services/userAPI';
+import Button from './components/Button';
 
 class ProfileEdit extends React.Component {
   constructor() {
@@ -93,7 +94,7 @@ class ProfileEdit extends React.Component {
           </label>
           <div className="container-button">
             <button
-              type="button"
+              type="submit"
               className="profile-edit-button"
               onClick={ this.handleSubmit }
             >

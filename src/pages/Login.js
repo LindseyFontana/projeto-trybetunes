@@ -3,6 +3,7 @@ import { BsHeadphones } from 'react-icons/bs';
 import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import Loading from './Loading';
+import Button from './components/Button';
 import './style/Login.css';
 
 class Login extends React.Component {
@@ -35,8 +36,18 @@ class Login extends React.Component {
     }
   }
 
+  saveUserInLocalStorage = (event) => {
+    const { userName } = this.state;
+    event.preventDefault();
+    this.setState({ isLoading: true });
+    createUser({ name: userName })
+      .then(() => this.setState(
+        { isLoading: false, startRedirecting: true },
+      ));
+  }
+
   render() {
-    const { startRedirecting, isLoading, userName, isButtonDesabled } = this.state;
+    const { startRedirecting, isLoading, isButtonDesabled } = this.state;
 
     return (
       <form data-testid="page-login" className="page-login">
@@ -65,22 +76,14 @@ class Login extends React.Component {
                   className="login-name-input"
                   placeholder="Senha"
                 />
-                <button
-                  type="submit"
-                  data-testid="login-submit-button"
-                  className="login-submit-button"
-                  disabled={ isButtonDesabled }
-                  onClick={ (event) => {
-                    event.preventDefault();
-                    this.setState({ isLoading: true });
-                    createUser({ name: userName })
-                      .then(() => this.setState(
-                        { isLoading: false, startRedirecting: true },
-                      ));
-                  } }
-                >
-                  Entrar
-                </button>
+                <Button
+                  buttonType="submit"
+                  testId="search-artist-button"
+                  name="login-button"
+                  isDesabled={ isButtonDesabled }
+                  text="Entrar"
+                  clickFunction={ this.saveUserInLocalStorage }
+                />
               </>
             )}
           {startRedirecting && <Redirect to="/search" /> }

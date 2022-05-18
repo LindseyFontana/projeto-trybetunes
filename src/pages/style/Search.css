@@ -29,22 +29,6 @@
   text-decoration: none;
 }
 
-.search-button {
-  background: #003BE5;
-  border: none;
-  color: white;
-  width: 96px;
-  height: 36px;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-.search-button:hover {
-  background-color: white;
-  border: 2px solid #003BE5;
-  color: #003BE5;
-}
-
 .search-container {
   margin-top: 70px;
   margin-bottom: 40px;
