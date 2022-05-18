@@ -1,0 +1,18 @@
+.button {
+	background: #003BE5;
+	border: none;
+	color: white;
+	border-radius: 5px;
+	font-size: 16px;
+}
+
+.search-button {
+	width: 96px;
+	height: 36px;
+}
+
+.button:hover {
+	background-color: white;
+	border: 2px solid #003BE5;
+	color: #003BE5;
+}

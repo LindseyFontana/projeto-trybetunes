@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Loading from './Loading';
+import Button from './components/Button';
 import NotFound from './NotFound';
 import './style/Search.css';
-import { AiOutlineSearch } from "react-icons/ai";
 
 class Search extends React.Component {
   constructor(props) {
@@ -78,15 +78,14 @@ class Search extends React.Component {
                 placeholder="Nome do artista"
                 onChange={ this.validadeSearchText }
               />
-              <button
-                type="submit"
-                data-testid="search-artist-button"
-                className="search-button"
-                disabled={ isButtonDesabled }
-                onClick={ this.getAlbums }
-              >
-                Pesquisar
-              </button>
+              <Button
+                buttonType="submit"
+                testId="search-artist-button"
+                name="search-button"
+                isDesabled={ isButtonDesabled }
+                text="Pesquisar"
+                clickFunction={ this.getAlbums }
+              />
             </div>
           )}
         <div>
