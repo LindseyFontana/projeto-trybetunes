@@ -9,14 +9,6 @@
 .profile-container {
 	width: 316px;
 	padding: 15px;
-	border-radius: 5px;
-}
-
-.profile-label {
-	color: #3D495C;
-	font-size: 16px;
-	font-weight: 700;
-	margin-bottom: 10px;
 }
 
 .profile-icon {
@@ -26,7 +18,7 @@
 	margin-bottom: 16px;
 }
 
-.profile-initial {
+.profile-image-container {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -36,4 +28,9 @@
 .user-infos {
 	font-size: 12px;
 	margin-bottom: 20px;
+}
+
+.profile-description {
+
+	margin-bottom: 900px;
 }

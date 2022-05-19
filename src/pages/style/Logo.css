@@ -1,0 +1,20 @@
+.header-logo-container {
+	display: flex;
+	flex-direction: column;
+	  font-size: 20px;
+  }
+  
+  .icon-header {
+	font-size: 24px;
+	  color: #2FC18C;
+	  margin-left: 6px;
+  }
+  
+  .header-logo-up {
+	margin-right: 5px;
+	font-weight: bold;
+  }
+  
+  .header-logo-down {
+	margin-left: 30px;
+  }

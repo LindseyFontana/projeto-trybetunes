@@ -34,7 +34,7 @@ class Profile extends React.Component {
     return (
       <div className="page-profile" data-testid="page-profile">
         <div className="profile-container">
-          <div className="profile-initial">
+          <div className="profile-image-container">
             <FaUserCircle className="profile-icon" />
             <Button
               buttonType="button"

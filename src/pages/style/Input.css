@@ -44,7 +44,7 @@
   outline: none;
 }
 
-.profile-edit-label {
+.profile-edit-label, .profile-label{
   color: #3D495C;
   display: flex;
   flex-direction: column;

@@ -1,8 +1,8 @@
-import React, { useHistory } from 'react';
+import React from 'react';
 import { FaUserCircle } from 'react-icons/fa';
-import { BsHeadphones } from 'react-icons/bs';
 import { getUser } from '../../services/userAPI';
 import Loading from '../Loading';
+import Logo from './Logo';
 import '../style/Header.css';
 import NavegationBar from './NavegationBar';
 
@@ -28,15 +28,7 @@ class Header extends React.Component {
     return (
       <header data-testid="header-component" className="header-component">
         <div className="user-header">
-          <div className="logo-header-container">
-            <p className="header-logo-up">
-              Trybe
-              <span>
-                <BsHeadphones className="icon-header" />
-              </span>
-            </p>
-            <p className="header-logo-down">tunes</p>
-          </div>
+          <Logo component="header" />
           { nameIsRender
             ? (
               <div className="user">
