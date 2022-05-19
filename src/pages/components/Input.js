@@ -1,15 +1,19 @@
 import React from 'react';
 import '../style/Input.css';
 
-function Input({ buttonType, testId, changeFunction, classStyle, placeHolder}) {
+function Input({ buttonType, testId, changeFunction, classStyle, placeHolder, value, nome}) {
   return (
-    <input
-      type={ buttonType }
-      data-testid={ testId }
-      className={ `text-input ${classStyle}` }
-      placeholder={ placeHolder }
-      onChange={ changeFunction }
-    />
+    <label htmlFor={ classStyle } className="profile-edit-label">
+      { nome }
+      <input
+        type={ buttonType }
+        data-testid={ testId }
+        className={ `text-input ${classStyle}` }
+        placeholder={ placeHolder }
+        value={ value }
+        onChange={ changeFunction }
+      />
+    </label>
   );
 }
 

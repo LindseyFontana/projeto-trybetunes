@@ -1,5 +1,6 @@
 .conteiner-search {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -36,7 +37,7 @@
   align-items: center;
 }
 
-.search-input {
+/* .search-input {
   width: 396px;
   height: 36px;
   margin-right: 25px;
@@ -55,7 +56,7 @@
   border-radius: 5px;
   font-size: 16px;
   padding: 15px;
-}
+} */
 
 
 .logo-icon {

@@ -3,6 +3,7 @@ import { FaUserCircle } from 'react-icons/fa';
 import './style/ProfileEdit.css';
 import { getUser, updateUser } from '../services/userAPI';
 import Button from './components/Button';
+import Input from './components/Input';
 
 class ProfileEdit extends React.Component {
   constructor() {
@@ -43,40 +44,29 @@ class ProfileEdit extends React.Component {
         <div className="profile-edit-container">
           <div className="profile-edit-image">
             <FaUserCircle className="profile-icon" />
-            <input
-              className="input-image"
-              type="text"
-              placeholder="Insira o link da imagem"
-              name="image"
+            <Input
+              classStyle="input-image"
+              placeHolder="Insira o link da imagem"
               value={ image !== '' ? image : null }
               onChange={ this.handleChangeInput }
             />
           </div>
-          <label htmlFor="profile-edit-name" className="profile-edit-label">
-            Nome
-            <input
-              className="profile-edit-input"
-              type="text"
-              placeholder="Insira seu nome"
-              name="name"
-              value={ name !== '' ? name : null }
-              onChange={ this.handleChangeInput }
-            />
-          </label>
-          <labe
-            htmlFor="profile-edit-email"
-            className="profile-edit-label"
-          >
-            Email
-            <input
-              className="profile-edit-input"
-              type="text"
-              placeholder="usuario@usuario.com.br"
-              name="email"
-              value={ email !== '' ? email : null }
-              onChange={ this.handleChangeInput }
-            />
-          </labe>
+          <Input
+            buttonType="text"
+            classStyle="profile-edit-input"
+            placeHolder="Insira seu nome"
+            nome="Nome"
+            value={ name !== '' ? name : null }
+            onChange={ this.handleChangeInput }
+          />
+          <Input
+            buttonType="text"
+            classStyle="profile-edit-input"
+            placeHolder="usuario@usuario.com.br"
+            nome="Email"
+            value={ email !== '' ? email : null }
+            onChange={ this.handleChangeInput }
+          />
           <label
             htmlFor="description"
             className="profile-edit-label"

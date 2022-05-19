@@ -15,68 +15,17 @@
   margin-top: 60px;
 }
 
-.profile-edit-label {
-  color: #3D495C;
-  display: flex;
-  flex-direction: column;
-  font-size: 16px;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.profile-edit-image {
-  align-items: center;
-  display: flex;
-}
-
-.profile-edit-input {
-  border: none;
-  border-bottom: 1px solid #bfc0c2;
-  height: 36px;
-  width: 286px;
-  padding: 6px 0px;
-}
-
-.profile-edit-input:focus {
-  box-shadow: 0;
-  font-size: 14px;
-  height: 36px;
-  margin-right: 3px;
-  border: none;
-  border-bottom: 1px solid #bfc0c2;
-  outline: none;
-  padding: 6px 2px;
-  width: 286px;
-  background-color: #F0F2F5;
-}
 
 .textarea-edit {
-  height: 100px;
+	height: 100px;
+	border: none;
+	border-bottom: 1px solid #bfc0c2;
 }
 
 .textarea-edit:focus {
-  height: 100px;
+  outline: none;
+  background-color: #F0F2F5;
 }
-
-.input-image {
-	outline: none;
-	border: 1px solid #bfc0c2;
-	height: 36px;
-	margin-left: 10px;
-	width: 206px;
-	padding: 6px;
-}
-
-.input-image:focus {
-	outline: none;
-	border: 1px solid #bfc0c2;
-	height: 36px;
-	margin-left: 10px;
-	width: 206px;
-	background-color: #F0F2F5;
-	padding: 6px;
-}
-
 .container-button {
 	display: flex;
 	justify-content: center;

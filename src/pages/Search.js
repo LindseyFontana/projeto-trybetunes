@@ -4,6 +4,7 @@ import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Loading from './Loading';
 import Button from './components/Button';
 import NotFound from './NotFound';
+import Input from './components/Input';
 import './style/Search.css';
 
 class Search extends React.Component {
@@ -71,12 +72,12 @@ class Search extends React.Component {
           ? <Loading />
           : (
             <div className="search-container">
-              <input
-                type="text"
-                data-testid="search-artist-input"
-                className="search-input"
-                placeholder="Nome do artista"
-                onChange={ this.validadeSearchText }
+              <Input
+                buttonType="text"
+                testId="search-artist-input"
+                classStyle="search-input"
+                placeHolder="Nome do artista"
+                changeFunction={ this.validadeSearchText }
               />
               <Button
                 buttonType="submit"
