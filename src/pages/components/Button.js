@@ -2,7 +2,7 @@ import React from 'react';
 import '../style/Button.css';
 
 function Button({ buttonType, testId, isDesabled, clickFunction, name, text }) {
-  const style = (buttonType === 'submit' ? 'submit-button': 'edit-button');
+  const style = (buttonType === 'submit' ? 'submit-button' : 'edit-button');
 
   return (
     <button

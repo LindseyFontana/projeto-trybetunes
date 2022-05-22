@@ -77,7 +77,7 @@ class Search extends React.Component {
                 testId="search-artist-input"
                 classStyle="search-input"
                 placeHolder="Nome do artista"
-                changeFunction={ this.validadeSearchText }
+                onChange={ this.validadeSearchText }
               />
               <Button
                 buttonType="submit"

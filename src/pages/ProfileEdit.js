@@ -23,10 +23,11 @@ class ProfileEdit extends React.Component {
     });
   }
 
-  handleChangeInput = ({ target: { name, value } }) => {
+  handleChangeInput = ({ target }) => {
+    console.log(target);
     this.setState((prevState) => ({
       ...prevState,
-      [name]: value,
+      [target.name]: target.value,
     }));
   }
 
@@ -46,6 +47,7 @@ class ProfileEdit extends React.Component {
             <FaUserCircle className="profile-icon" />
             <Input
               classStyle="input-image"
+              name="image"
               placeHolder="Insira o link da imagem"
               value={ image !== '' ? image : null }
               onChange={ this.handleChangeInput }
@@ -55,7 +57,8 @@ class ProfileEdit extends React.Component {
             buttonType="text"
             classStyle="profile-edit-input"
             placeHolder="Insira seu nome"
-            nome="Nome"
+            label="Nome"
+            name="name"
             value={ name !== '' ? name : null }
             onChange={ this.handleChangeInput }
           />
@@ -63,7 +66,8 @@ class ProfileEdit extends React.Component {
             buttonType="text"
             classStyle="profile-edit-input"
             placeHolder="usuario@usuario.com.br"
-            nome="Email"
+            label="E-mail"
+            name="email"
             value={ email !== '' ? email : null }
             onChange={ this.handleChangeInput }
           />

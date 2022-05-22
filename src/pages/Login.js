@@ -69,7 +69,7 @@ class Login extends React.Component {
                   testId="login-name-input"
                   classStyle="login-input"
                   placeHolder="Name"
-                  changeFunction={ this.validateInputName }
+                  onChange={ this.validateInputName }
                 />
                 <Input
                   buttonType="text"
