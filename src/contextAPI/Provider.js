@@ -3,7 +3,12 @@ import React, { useState } from 'react';
 import Context from './Context';
 
 function Provider({ children }) {
-  const [user, setUser] = useState('');
+  const [user, setUser] = useState({
+    image: '',
+    name: '',
+    email: '',
+    description: '',
+  });
 
   return (
     <Context.Provider

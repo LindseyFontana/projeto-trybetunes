@@ -28,7 +28,7 @@ function Header() {
                 data-testid="header-user-name"
                 className="user-name"
               >
-                { user }
+                { user.name }
               </p>
             </div>
           )

@@ -36,7 +36,10 @@ function Login() {
         setButton(false);
         setStartRedirecting(true);
         setIsLoading(true);
-        setUser(userName);
+        setUser((...prevState) => ({
+          ...prevState,
+          name: userName,
+        }));
       });
   };
 
