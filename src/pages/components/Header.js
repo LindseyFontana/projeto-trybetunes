@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
-import { getUser } from '../../services/userAPI';
 import Context from '../../contextAPI/Context';
 import Loading from '../Loading';
 import Logo from './Logo';
@@ -10,7 +9,6 @@ import NavegationBar from './NavegationBar';
 function Header() {
   const [nameIsRender, setNameIsRender] = useState(false);
   const { user, setUser } = useContext(Context);
-  console.log(user);
 
   useEffect(() => {
     setNameIsRender(true);
