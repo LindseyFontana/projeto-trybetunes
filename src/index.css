@@ -1,6 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter&family=Montserrat&family=Roboto:wght@300&display=swap') ;
-
 :root {
-	--main-color-button: rgb(0, 57, 230);
-	--secondary-color-button: rgb(255, 255, 255);
+	--main-color-site: #ffffff;
+
+	--main-color-button: #0039e6;
+	--secondary-color-button: #ffffff;
+
+	--main-color-header: #023031;
+	--secondary-color-header: #FFFFFF;
+
+	--main-color-nav: #036B52;
+	--secondary-color-nav: #F0F2F5;
+	--terciary-color-nav: #2FC18C;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter&family=Montserrat&family=Roboto:wght@300&display=swap') ;

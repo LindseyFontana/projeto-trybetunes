@@ -1,11 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter&family=Montserrat&family=Roboto:wght@300&display=swap') ;
-
 .link {
-  color: #2FC18C;
+  color: var(--terciary-color-nav);
   height: 100%;
   width: 90%;
   text-decoration: none;
-  background: #F0F2F5;
+  background: var(--secondary-color-nav);
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -13,8 +11,8 @@
 }
 
 .link-active {
-  background: #036B52;
-  color: #FFFFFF;
+  background: var(--main-color-nav);
+  color: var(--main-color-site);
   font-weight: 700;
 }
 
@@ -33,8 +31,8 @@
 .user-header {
   height: 86px;
   width: 100%;
-  background-color: #023031;
-  color: white;
+  background-color: var(--main-color-header);
+  color: var(--main-color-site);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -58,7 +56,7 @@
 }
 
 .user {
-  background-color: #FFFFFF;
+  background-color: var(--main-color-site);
   border-radius: 30px;
   display: flex;
   padding: 5px;
@@ -69,7 +67,7 @@
 }
 
 .user-icon {
-  color: #2FC18C;
+  color: var(--terciary-color-nav);
   font-size: 28px;
   margin-right: 1px;
 }
