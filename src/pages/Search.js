@@ -68,7 +68,6 @@ class Search extends React.Component {
       serchedAlbums, searchText, isButtonDesabled } = this.state;
     return (
       <form data-testid="page-search" className="conteiner-search">
-        {console.log(isLoading)}
         {isLoading
           ? <Loading />
           : (
@@ -99,9 +98,6 @@ class Search extends React.Component {
           { serchedAlbums.length > 0
             && (
               <div className="search-result">
-                <h1 className="search-title">
-                  { `Resultado de álbuns de Artista: ${searchText}`}
-                </h1>
                 <div className="searched-albuns">
                   {serchedAlbums.map((album) => (
                     <div key={ album.collectionName } className="album">
