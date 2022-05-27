@@ -25,12 +25,20 @@
 	align-items: center;
 }
 
-.user-infos {
-	font-size: 12px;
-	margin-bottom: 20px;
+.profile-description {
+	margin-bottom: 900px;
 }
 
-.profile-description {
+.profile-label {
+	font-size: 16px;
+	font-weight: bold;
+	font-weight: 700;
+}
 
-	margin-bottom: 900px;
+.user-infos {
+	font-size: 14px;
+	margin-bottom: 20px;
+	margin-top: 5px;
+	color: black;
+	font-weight: 200;
 }
