@@ -13,7 +13,7 @@ function Login() {
   const [isButtonDesabled, setButton] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [startRedirecting, setStartRedirecting] = useState(false);
-  const { user, setUser } = useContext(Context);
+  const { setUser } = useContext(Context);
 
   const validateInputName = ({ target }) => {
     const { value } = target;
@@ -31,15 +31,15 @@ function Login() {
 
   const saveUser = (event) => {
     event.preventDefault();
+    setIsLoading(true);
     createUser({ name: userName })
       .then(() => {
         setButton(false);
-        setStartRedirecting(true);
-        setIsLoading(true);
         setUser((...prevState) => ({
           ...prevState,
           name: userName,
         }));
+        setStartRedirecting(true);
       });
   };
 

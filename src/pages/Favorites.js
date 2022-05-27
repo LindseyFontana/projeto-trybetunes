@@ -12,12 +12,14 @@ class Favorites extends React.Component {
     };
   }
 
-
-
   componentDidMount = async () => {
+    this.setState({
+      isLoading: true,
+    });
     const favoriteSongs = await getFavoriteSongs();
     this.setState({
       favoriteSongs,
+      isLoading: false,
     });
   }
 
@@ -45,6 +47,7 @@ class Favorites extends React.Component {
       <div data-testid="page-favorites" className="page-favorites">
         <p>Músicas Favoritas: </p>
         <div className="favorite-music-container">
+          {console.log(isLoading)}
           {isLoading
             ? <Loading />
             : favoriteSongs

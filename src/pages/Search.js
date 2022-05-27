@@ -68,6 +68,7 @@ class Search extends React.Component {
       serchedAlbums, searchText, isButtonDesabled } = this.state;
     return (
       <form data-testid="page-search" className="conteiner-search">
+        {console.log(isLoading)}
         {isLoading
           ? <Loading />
           : (
@@ -86,13 +87,16 @@ class Search extends React.Component {
                 isDesabled={ isButtonDesabled }
                 text="Pesquisar"
                 clickFunction={ this.getAlbums }
+                isLoading={ isLoading }
               />
             </div>
           )}
         <div>
-          { isSerched && serchedAlbums.length === 0 && <NotFound /> }
+          { isSerched
+          && serchedAlbums.length === 0
+          && <p>Nenhum álbum foi encontrado</p> }
 
-          {serchedAlbums.length > 0
+          { serchedAlbums.length > 0
             && (
               <div className="search-result">
                 <h1 className="search-title">
