@@ -1,12 +1,13 @@
 import React from 'react';
 import './style/Loading.css';
 
-class Loading extends React.Component {
-  render() {
-    return (
-      <p className="loading">Carregando...</p>
-    );
-  }
+function Loading({ component }) {
+  return (
+    <p className={ component === 'login' ? 'loading-login' : 'loading' }>
+      Carregando...
+    </p>
+
+  );
 }
 
 export default Loading;

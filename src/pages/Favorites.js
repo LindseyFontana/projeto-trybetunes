@@ -45,9 +45,7 @@ class Favorites extends React.Component {
     const { reduceAlbumName } = this.props;
     return (
       <div data-testid="page-favorites" className="page-favorites">
-        <p>Músicas Favoritas: </p>
         <div className="favorite-music-container">
-          {console.log(isLoading)}
           {isLoading
             ? <Loading />
             : favoriteSongs

@@ -54,7 +54,7 @@ function Login() {
       </div>
       <fieldset className="login">
         {isLoading
-          ? <Loading />
+          ? <Loading component="login" />
           : (
             <>
               <Input

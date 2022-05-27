@@ -3,5 +3,12 @@
 .loading {
 	font-family: 'Montserrat', sans-serif;
 	margin-top: 10px;
-	font-size: 20px;
+	font-size: 50px;
+	color: #023031;
+	margin-top: 70px;
+}
+
+.loading-login {
+	font-size: 26px;
+	color: #023031;
 }

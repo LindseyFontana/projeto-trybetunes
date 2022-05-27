@@ -20,7 +20,7 @@ function NavegationBar() {
         Search
       </Link>
       <Link
-        className={ path === '/favorites' ? 'link link-active' : 'link link-search' }
+        className={ path === '/favorites' ? 'link link-active' : 'link link-favorites' }
         data-testid="link-to-favorites"
         to="/favorites"
       >
@@ -29,7 +29,7 @@ function NavegationBar() {
       <Link
         className={
           path === '/profile' || path === '/profile/edit'
-            ? 'link link-active' : 'link link-search'
+            ? 'link link-active' : 'link'
         }
         data-testid="link-to-profile"
         to="/profile"
