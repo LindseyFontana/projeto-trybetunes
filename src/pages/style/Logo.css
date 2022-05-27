@@ -1,15 +1,15 @@
 .header-logo-container {
 	display: flex;
 	flex-direction: column;
-	  font-size: 20px;
+	font-size: 20px;
   }
-  
+
   .icon-header {
 	font-size: 24px;
-	  color: #2FC18C;
-	  margin-left: 6px;
+	color: #2FC18C;
+	margin-left: 6px;
   }
-  
+
   .header-logo-up {
 	margin-right: 5px;
 	font-weight: bold;
@@ -18,3 +18,26 @@
   .header-logo-down {
 	margin-left: 30px;
   }
+
+  .notFound-logo-container {
+	display: flex;
+	flex-direction: column;
+	font-size: 28px;
+  }
+
+  .icon-notFound {
+	font-size: 28px;
+	color: #2FC18C;
+	margin-left: 6px;
+  }
+  
+  .notFound-logo-up {
+	margin-right: 5px;
+	font-weight: bold;
+  }
+  
+  .notFound-logo-down {
+	margin-left: 30px;
+  }
+
+  
