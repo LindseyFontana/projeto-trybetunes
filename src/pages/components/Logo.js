@@ -8,7 +8,7 @@ function Logo({ component }) {
       <p className={ `${component}-logo-up` }>
         Trybe
         <span>
-          <BsHeadphones className="icon-header" />
+          <BsHeadphones className={ `icon-${component}` } />
         </span>
       </p>
       <p className={ `${component}-logo-down` }>tunes</p>
