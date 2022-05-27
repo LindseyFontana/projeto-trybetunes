@@ -4,7 +4,6 @@
 	align-items: flex-start;
 	margin-bottom: 15px;
 	font-size: 18px;
-	color: #001813;
 }
 .page-favorites {
 	display: flex;
@@ -22,7 +21,7 @@
   align-items: center;
   margin-top: 20px;
   padding-bottom: 15px;
-  border-bottom: 1px solid #E1E5EB;
+  border-bottom: 1px solid var(--border-input);
 }
 
 .favorite-music-image {

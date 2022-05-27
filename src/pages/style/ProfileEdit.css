@@ -18,12 +18,12 @@
 .textarea-edit {
 	height: 100px;
 	border: none;
-	border-bottom: 1px solid #bfc0c2;
+	border-bottom: 1px solid var(--bg-input-focus);
 }
 
 .textarea-edit:focus {
   outline: none;
-  background-color: #F0F2F5;
+  background-color: var(--bg-input-focus);
 }
 
 .container-button {

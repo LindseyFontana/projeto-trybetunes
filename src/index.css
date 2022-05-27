@@ -1,15 +1,25 @@
 :root {
-	--main-color-site: #ffffff;
+	--main-white: #ffffff;
 
-	--main-color-button: #0039e6;
-	--secondary-color-button: #ffffff;
+	--main-blue: #0039e6;
 
-	--main-color-header: #023031;
-	--secondary-color-header: #FFFFFF;
+	--main-green: #023031;
+	--secondary-green: #036B52;
+	--terciary-green: #2FC18C;
+	
+	--shadow: #00000040;
 
-	--main-color-nav: #036B52;
-	--secondary-color-nav: #F0F2F5;
-	--terciary-color-nav: #2FC18C;
+	--border-input: #d1d3d6;
+	--border-input-focus: #949596;
+	--bg-input-focus: #F0F2F5;
+
+	--label: #3D495C;
+	--user-infos: #29313D;
+
+	--text-log: #444955;
+
+	--bg-edit-hover: #e0dcdc;
+	--black: #000000;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter&family=Montserrat&family=Roboto:wght@300&display=swap') ;
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter&family=Montserrat&family=Roboto:wght@300&display=swap');

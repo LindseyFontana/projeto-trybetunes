@@ -5,15 +5,15 @@
 }
 
 .submit-button {
-  background: var(--main-color-button);
+  background: var(--main-blue);
   border: none;
-  color: var(--secondary-color-button);
+  color: var(--main-white);
 }
 
 .submit-button:hover, .edit-button {
-  background-color: var(--secondary-color-button);
-  border: 2px solid var(--main-color-button);
-  color: var(--main-color-button);
+  background-color: var(--main-white);
+  border: 2px solid var(--main-blue);
+  color: var(--main-blue);
   font-weight: 700;
 }
 
@@ -37,5 +37,5 @@
 }
 
 .edit-button:hover {
-  background-color: rgb(224, 220, 220);
+  background-color: var(--bg-edit-hover);
 }

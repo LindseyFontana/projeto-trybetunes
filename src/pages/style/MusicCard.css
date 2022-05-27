@@ -31,7 +31,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 214px;
-  color: #023031;
+  color: var(--main-green);
   font-size: 26px;
   margin-bottom: 6px;
 }

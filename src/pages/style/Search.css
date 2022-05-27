@@ -26,7 +26,7 @@
   flex-direction: row wrap;
   padding: 10px;
   font-size: 16px;
-  color: #3D495C;
+  color: var(--label);
   text-decoration: none;
 }
 
@@ -45,14 +45,14 @@
   width: 36px;
   height: 26px;
   margin-left: 1px;
-  color: #2FC18C;
+  color: var(--terciary-green);
 }
 
 .album {
   width: 226px;
   height: 226px;
-  border: 1px solid #E1E5EB;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-input);
+  box-shadow: 0px 1px 2px var(--shadow);
   border-radius: 6px;
   margin-top: 15px;
   margin-bottom: 10px;
@@ -66,17 +66,18 @@
 
 .artist-name {
   padding: 10px;
-  color: #3D495C;
+  color: var(--label);
   padding-top: 0px;
   text-decoration: none;
   font-size: 12px;
+  text-decoration: none;
 }
 
 .search-title {
   font-size: 24px;
   display: flex;
   justify-content: flex-start;
-  color: #09463a;
+  color: var(--secondary-green);
 }
 
 .search-icon {
