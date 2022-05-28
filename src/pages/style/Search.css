@@ -86,3 +86,8 @@
   position: absolute;
 
 }
+
+.albumNotFound {
+  font-size: 26px;
+  color: var(--main-green);
+}

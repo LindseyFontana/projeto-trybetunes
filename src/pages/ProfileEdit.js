@@ -1,22 +1,13 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
 import './style/ProfileEdit.css';
-import { getUser, updateUser } from '../services/userAPI';
+import { updateUser } from '../services/userAPI';
 import Button from './components/Button';
 import Input from './components/Input';
 import Context from '../contextAPI/Context';
 
 function ProfileEdit({ history }) {
   const { user, setUser } = useContext(Context);
-
-  // useEffect(() => {
-  //   // const getLocalStorage = async () => {
-  //   //   const localStorage = await getUser();
-  //   //   this.setState({
-  //   //     ...localStorage,
-  //   //   });
-  //   // };
-  // });
 
   const handleChangeInput = ({ target }) => {
     setUser((prevState) => ({

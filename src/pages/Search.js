@@ -93,7 +93,7 @@ class Search extends React.Component {
         <div>
           { isSerched
           && serchedAlbums.length === 0
-          && <p>Nenhum álbum foi encontrado</p> }
+          && <p className="albumNotFound">Nenhum álbum encontrado.</p> }
 
           { serchedAlbums.length > 0
             && (
