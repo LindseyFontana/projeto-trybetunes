@@ -20,4 +20,5 @@
 
 .message-not-found {
 	font-size: 40px;
+	color: var(--main-green);
 }

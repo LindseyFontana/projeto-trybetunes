@@ -1,7 +1,7 @@
 import React from 'react';
+import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
 import './style/Favorites.css';
-import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class Favorites extends React.Component {
   constructor() {
@@ -46,54 +46,58 @@ class Favorites extends React.Component {
     return (
       <div data-testid="page-favorites" className="page-favorites">
         <div className="favorite-music-container">
-          {/* {favoriteSongs === [] && favoriteSongs === null && favoriteSongs === undefined
-            ? <p>Não há música favoritada</p>
-            : null } */}
           {isLoading
             ? <Loading />
-            : favoriteSongs
-              .map((music, index) => (
-                <div key={ index } className="favorite-music">
-                  <img
-                    src={ music.image }
-                    alt="Capa album"
-                    className="favorite-music-image"
-                  />
-                  <p className="favorite-music-name">
-                    { music.musicName.length > 20
-                      ? reduceAlbumName(music.musicName)
-                      : music.musicName }
-                  </p>
-                  <div className="favorite-music-audio">
-                    <audio
-                      className="music-audio"
-                      data-testid="audio-component"
-                      src={ music.preview }
-                      controls
-                    >
-                      <track kind="captions" />
-                      {' '}
-                      O seu navegador não suporta o elemento
-                      {' '}
-                      <code>audio</code>
-                      ..
-                    </audio>
-                  </div>
-                  <label htmlFor="favorite-music" className="favorited">
-                    <input
-                      type="checkbox"
-                      id={ `${music.trackId}` }
-                      name="favorite-music"
-                      data-testid={ `checkbox-music-${music.trackId}` }
-                      onClick={ this.update }
-                      checked={ !favoriteSongs.includes(music.trackId) }
-                    />
-                  </label>
-                </div>
-              ))}
+            : renderSongs(favoriteSongs, this.update)}
         </div>
       </div>
     );
+
+    function renderSongs(songs, updateSong) {
+      if (songs.length === 0) {
+        return <p className="favoteNotFound">Não há música favoritada</p>;
+      }
+      return songs
+        .map((music, index) => (
+          <div key={ index } className="favorite-music">
+            <img
+              src={ music.image }
+              alt="Capa album"
+              className="favorite-music-image"
+            />
+            <p className="favorite-music-name">
+              {music.musicName.length > 20
+                ? reduceAlbumName(music.musicName)
+                : music.musicName}
+            </p>
+            <div className="favorite-music-audio">
+              <audio
+                className="music-audio"
+                data-testid="audio-component"
+                src={ music.preview }
+                controls
+              >
+                <track kind="captions" />
+                {' '}
+                O seu navegador não suporta o elemento
+                {' '}
+                <code>audio</code>
+                ..
+              </audio>
+            </div>
+            <label htmlFor="favorite-music" className="favorited">
+              <input
+                type="checkbox"
+                id={ `${music.trackId}` }
+                name="favorite-music"
+                data-testid={ `checkbox-music-${music.trackId}` }
+                onClick={ updateSong }
+                checked={ !favoriteSongs.includes(music.trackId) }
+              />
+            </label>
+          </div>
+        ));
+    }
   }
 }
 

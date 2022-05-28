@@ -33,3 +33,8 @@
 .favorite-music-name {
 	width: 200px;
 }
+
+.favoteNotFound {
+	font-size: 26px;
+	color: var(--main-green);
+}
