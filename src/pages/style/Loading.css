@@ -1,9 +1,12 @@
 .loading {
+	display: flex;
+	justify-content: center;
 	font-family: 'Montserrat', sans-serif;
 	margin-top: 10px;
 	font-size: 50px;
 	color: var(--main-green);
 	margin-top: 70px;
+	width: 600px;
 }
 
 .loading-login {

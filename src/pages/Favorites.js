@@ -46,6 +46,9 @@ class Favorites extends React.Component {
     return (
       <div data-testid="page-favorites" className="page-favorites">
         <div className="favorite-music-container">
+          {/* {favoriteSongs === [] && favoriteSongs === null && favoriteSongs === undefined
+            ? <p>Não há música favoritada</p>
+            : null } */}
           {isLoading
             ? <Loading />
             : favoriteSongs
