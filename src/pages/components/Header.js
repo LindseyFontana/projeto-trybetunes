@@ -10,7 +10,7 @@ import NavegationBar from './NavegationBar';
 function Header() {
   const [nameIsRender, setNameIsRender] = useState(false);
   const { user, setUser } = useContext(Context);
-  console.log(user);
+  console.log(user.name);
 
   useEffect(() => {
     setNameIsRender(true);
@@ -28,7 +28,7 @@ function Header() {
                 data-testid="header-user-name"
                 className="user-name"
               >
-                { user.name }
+                { user.name !== undefined && user.name }
               </p>
             </div>
           )
