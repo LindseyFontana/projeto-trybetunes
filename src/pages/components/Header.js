@@ -27,7 +27,7 @@ function Header() {
               >
                 { user.name !== '' && user.name !== undefined
                   ? user.name
-                  : <Redirect to="/" />}
+                  : null}
               </p>
             </div>
           )
