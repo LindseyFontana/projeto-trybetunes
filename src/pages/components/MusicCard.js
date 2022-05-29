@@ -1,7 +1,9 @@
 import { PropTypes } from 'prop-types';
 import React from 'react';
 import Loading from './Loading';
-import './style/MusicCard.css';
+import '../style/MusicCard.css';
+
+const maxNumberCharacteres = 20;
 
 class MusicCard extends React.Component {
   constructor() {
@@ -26,13 +28,12 @@ class MusicCard extends React.Component {
             .map((music, index) => (
               <div key={ index } className="music-container">
                 <p className="music-name">
-                  { music.musicName.length > 20
+                  { music.musicName.length > maxNumberCharacteres
                     ? reduceAlbumName(music.musicName)
                     : music.musicName }
                 </p>
                 <audio
                   className="music-audio"
-                  data-testid="audio-component"
                   src={ music.preview }
                   controls
                 >
@@ -48,8 +49,7 @@ class MusicCard extends React.Component {
                     type="checkbox"
                     id={ `${music.trackId}` }
                     name="checkbox-music"
-                    data-testid={ `checkbox-music-${music.trackId}` }
-                    onClick={ () => updateFavoriteSongs(event, music) }
+                    onClick={ () => updateFavoriteSongs(music) }
                     checked={ favoriteSongs
                       .some((song) => song.trackId === music.trackId) }
                   />
@@ -69,6 +69,7 @@ MusicCard.propTypes = {
   updateFavoriteSongs: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
   favoriteSongs: PropTypes.arrayOf.isRequired,
+  reduceAlbumName: PropTypes.func.isRequired,
 };
 
 export default MusicCard;

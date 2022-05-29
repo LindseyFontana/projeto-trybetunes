@@ -1,24 +1,24 @@
 .page-not-found {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	margin: 70px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 70px;
 }
 
 .text-not-found {
-	display: flex;
-	color: var(--main-green);
-	width: 656px;
-	margin-top: 56px;
+  color: var(--main-green);
+  display: flex;
+  margin-top: 56px;
+  width: 656px;
 }
 
 .ops {
-	font-size: 100px;
-	margin-right: 35px;
+  font-size: 100px;
+  margin-right: 35px;
 }
 
 .message-not-found {
-	font-size: 40px;
-	color: var(--main-green);
+  color: var(--main-green);
+  font-size: 40px;
 }

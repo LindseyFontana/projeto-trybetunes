@@ -1,34 +1,33 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
-import { getUser } from '../../services/userAPI';
+import { Redirect } from 'react-router-dom';
 import Context from '../../contextAPI/Context';
-import Loading from '../Loading';
+import Loading from './Loading';
 import Logo from './Logo';
 import '../style/Header.css';
 import NavegationBar from './NavegationBar';
 
 function Header() {
   const [nameIsRender, setNameIsRender] = useState(false);
-  const { user, setUser } = useContext(Context);
-  console.log(user.name);
+  const { user } = useContext(Context);
 
   useEffect(() => {
     setNameIsRender(true);
   }, []);
-
   return (
-    <header data-testid="header-component" className="header-component">
-      <div className="user-header">
+    <header className="header-component">
+      <div className="header">
         <Logo component="header" />
         { nameIsRender
           ? (
             <div className="user">
               <FaUserCircle className="user-icon" />
               <p
-                data-testid="header-user-name"
                 className="user-name"
               >
-                { user.name !== undefined && user.name }
+                { user.name !== '' && user.name !== undefined
+                  ? user.name
+                  : <Redirect to="/" />}
               </p>
             </div>
           )

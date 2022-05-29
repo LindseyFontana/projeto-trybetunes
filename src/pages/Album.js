@@ -1,7 +1,7 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import getMusics from '../services/musicsAPI';
-import MusicCard from './MusicCard';
+import MusicCard from './components/MusicCard';
 import './style/MusicCard.css';
 
 class Album extends React.Component {
@@ -40,7 +40,7 @@ class Album extends React.Component {
 
     const { musics, album } = this.state;
     return (
-      <div data-testid="page-album">
+      <div>
         { musics.length > 0
         && (
           <div className="music-card">
@@ -50,10 +50,10 @@ class Album extends React.Component {
                 src={ album.artworkUrl100 }
                 alt="Album"
               />
-              <h2 data-testid="album-name" className="album-musics-name">
+              <h2 className="album-musics-name">
                 { album.collectionName }
               </h2>
-              <p data-testid="artist-name" className="artist-musics-name">
+              <p className="artist-musics-name">
                 { album.artistName }
               </p>
             </div>
@@ -81,6 +81,7 @@ Album.propTypes = {
   updateFavoriteSongs: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
   favoriteSongs: PropTypes.arrayOf.isRequired,
+  reduceAlbumName: PropTypes.func.isRequired,
 };
 
 export default Album;

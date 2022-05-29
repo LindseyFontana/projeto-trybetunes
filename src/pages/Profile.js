@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaUserCircle } from 'react-icons/fa';
+import { PropTypes } from 'prop-types';
 import Button from './components/Button';
 import './style/Profile.css';
 
@@ -32,7 +33,7 @@ class Profile extends React.Component {
     const { userInfos } = this.state;
 
     return (
-      <div className="page-profile" data-testid="page-profile">
+      <div className="page-profile">
         <div className="profile-container">
           <div className="profile-image-container">
             <FaUserCircle className="profile-icon" />
@@ -79,5 +80,11 @@ class Profile extends React.Component {
     );
   }
 }
+
+Profile.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 export default Profile;

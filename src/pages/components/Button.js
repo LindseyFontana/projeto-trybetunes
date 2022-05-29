@@ -1,13 +1,13 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 import '../style/Button.css';
 
-function Button({ buttonType, testId, isDesabled, clickFunction, name, text}) {
+function Button({ buttonType, isDesabled, clickFunction, name, text }) {
   const style = (buttonType === 'submit' ? 'submit-button' : 'edit-button');
 
   return (
     <button
       type={ buttonType }
-      data-testid={ testId }
       className={ `button ${style} ${name}` }
       disabled={ isDesabled }
       onClick={ clickFunction }
@@ -17,5 +17,13 @@ function Button({ buttonType, testId, isDesabled, clickFunction, name, text}) {
 
   );
 }
+
+Button.propTypes = {
+  isDesabled: PropTypes.bool.isRequired,
+  clickFunction: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  buttonType: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+};
 
 export default Button;

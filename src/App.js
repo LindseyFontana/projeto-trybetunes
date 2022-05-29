@@ -11,6 +11,7 @@ import Provider from './contextAPI/Provider';
 import Search from './pages/Search';
 import { addSong, getFavoriteSongs, removeSong } from './services/favoriteSongsAPI';
 
+const maxNumberCharacteres = 20;
 class App extends React.Component {
   constructor() {
     super();
@@ -28,7 +29,7 @@ class App extends React.Component {
   }
 
   reduceAlbumName = (albumName) => {
-    const newAlbumName = albumName.slice(0, 20);
+    const newAlbumName = albumName.slice(0, maxNumberCharacteres);
     return `${newAlbumName}...`;
   }
 

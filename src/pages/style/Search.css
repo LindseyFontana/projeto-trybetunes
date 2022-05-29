@@ -1,83 +1,83 @@
 .conteiner-search {
+  align-items: center;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  justify-content: center;
 }
 
 .search-result {
-  display: flex;
   align-items: center;
+  display: flex;
   flex-direction: column;
 }
 
 .searched-albuns {
-  width: 80%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
+  width: 80%;
 }
 
 .collection-name {
-  width: 100%;
+  color: var(--label);
   display: flex;
   flex-direction: row wrap;
-  padding: 10px;
   font-size: 16px;
-  color: var(--label);
+  padding: 10px;
   text-decoration: none;
+  width: 100%;
 }
 
 .search-container {
-  margin-top: 70px;
-  margin-bottom: 40px;
-  display: flex;
   align-items: center;
+  display: flex;
+  margin-bottom: 40px;
+  margin-top: 70px;
 }
 
 .logo-icon {
- display: flex;
+  display: flex;
 }
 
 .icon {
-  width: 36px;
+  color: var(--terciary-green);
   height: 26px;
   margin-left: 1px;
-  color: var(--terciary-green);
+  width: 36px;
 }
 
 .album {
-  width: 226px;
-  height: 226px;
   border: 1px solid var(--border-input);
-  box-shadow: 0px 1px 2px var(--shadow);
   border-radius: 6px;
-  margin-top: 15px;
+  box-shadow: 0 1px 2px var(--shadow);
+  height: 226px;
   margin-bottom: 10px;
+  margin-top: 15px;
+  width: 226px;
 }
 
 .img-album {
-  width: 226px;
-  height: 142px;
   border-radius: 5px;
+  height: 142px;
+  width: 226px;
 }
 
 .artist-name {
-  padding: 10px;
   color: var(--label);
-  padding-top: 0px;
-  text-decoration: none;
   font-size: 12px;
+  padding: 10px;
+  padding-top: 0;
+  text-decoration: none;
   text-decoration: none;
 }
 
 .search-title {
-  font-size: 24px;
-  display: flex;
-  justify-content: flex-start;
   color: var(--secondary-green);
+  display: flex;
+  font-size: 24px;
+  justify-content: flex-start;
 }
 
 .search-icon {
@@ -88,6 +88,6 @@
 }
 
 .albumNotFound {
-  font-size: 26px;
   color: var(--main-green);
+  font-size: 26px;
 }

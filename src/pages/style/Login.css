@@ -1,48 +1,48 @@
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+  font-family: Montserrat , sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 .page-login {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	margin: 0;
-	margin-top: 70px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  margin-top: 70px;
 }
 
 .login {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding-top: 80px;
-	height: 296px;
-	width: 364px;
-	border-radius: 10px;
-	border: 2px solid var(--border-input);
+  align-items: center;
+  border: 2px solid var(--border-input);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 296px;
+  padding-top: 80px;
+  width: 364px;
 }
 
 .logo-login-container {
-	font-size: 28px;
-	margin-bottom: 28px;
+  font-size: 28px;
+  margin-bottom: 28px;
 }
 
 .icon-login {
-	color: var(--terciary-green);
-	margin-left: 6px;
+  color: var(--terciary-green);
+  margin-left: 6px;
 }
 
 .login-logo-up {
-  font-size: 28px;
-  margin-right: 5px;
-  font-weight: bold;
   color: var(--text-log);
+  font-size: 28px;
+  font-weight: bold;
+  margin-right: 5px;
 }
 
 .login-logo-down {
-  margin-left: 30px;
   color: var(--text-log);
+  margin-left: 30px;
 }

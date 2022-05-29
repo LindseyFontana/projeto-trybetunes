@@ -1,5 +1,6 @@
 import React from 'react';
-import './style/Loading.css';
+import { PropTypes } from 'prop-types';
+import '../style/Loading.css';
 
 function Loading({ component }) {
   return (
@@ -9,5 +10,9 @@ function Loading({ component }) {
 
   );
 }
+
+Loading.propTypes = {
+  component: PropTypes.string.isRequired,
+};
 
 export default Loading;

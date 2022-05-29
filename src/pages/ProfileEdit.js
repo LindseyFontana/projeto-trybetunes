@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
-import './style/ProfileEdit.css';
+import { PropTypes } from 'prop-types';
 import { updateUser } from '../services/userAPI';
 import Button from './components/Button';
 import Input from './components/Input';
 import Context from '../contextAPI/Context';
+import './style/ProfileEdit.css';
 
 function ProfileEdit({ history }) {
   const { user, setUser } = useContext(Context);
@@ -22,7 +23,7 @@ function ProfileEdit({ history }) {
   };
 
   return (
-    <div data-testid="page-profile-edit">
+    <div>
       <div className="profile-edit-container">
         <div className="profile-edit-image">
           <FaUserCircle className="profile-icon" />
@@ -81,5 +82,11 @@ function ProfileEdit({ history }) {
     </div>
   );
 }
+
+ProfileEdit.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 export default ProfileEdit;

@@ -3,7 +3,7 @@ import { BsHeadphones } from 'react-icons/bs';
 import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import Context from '../contextAPI/Context';
-import Loading from './Loading';
+import Loading from './components/Loading';
 import Button from './components/Button';
 import Input from './components/Input';
 import './style/Login.css';
@@ -13,7 +13,7 @@ function Login() {
   const [isButtonDesabled, setButton] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [startRedirecting, setStartRedirecting] = useState(false);
-  const { user, setUser } = useContext(Context);
+  const { setUser } = useContext(Context);
 
   const validateInputName = ({ target }) => {
     const { value } = target;
@@ -44,7 +44,7 @@ function Login() {
   };
 
   return (
-    <form data-testid="page-login" className="page-login">
+    <form className="page-login">
       <div className="logo-login-container">
         <p className="login-logo-up">
           Trybe
@@ -65,10 +65,9 @@ function Login() {
                 onChange={ validateInputName }
               />
               <Input
-                buttonType="text"
-                testId="login-senha-input"
+                buttonType="email"
                 classStyle="login-input"
-                placeHolder="Senha"
+                placeHolder="E-mail"
               />
               <Button
                 buttonType="submit"

@@ -1,5 +1,6 @@
 import React from 'react';
 import { BsHeadphones } from 'react-icons/bs';
+import { PropTypes } from 'prop-types';
 import '../style/Logo.css';
 
 function Logo({ component }) {
@@ -15,5 +16,9 @@ function Logo({ component }) {
     </div>
   );
 }
+
+Logo.propTypes = {
+  component: PropTypes.string.isRequired,
+};
 
 export default Logo;

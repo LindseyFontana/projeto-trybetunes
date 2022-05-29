@@ -1,6 +1,7 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
-import Loading from './Loading';
+import Loading from './components/Loading';
 import './style/Favorites.css';
 
 class Favorites extends React.Component {
@@ -29,7 +30,6 @@ class Favorites extends React.Component {
     });
     const {
       updateFavoriteSongs,
-      reduceAlbumName,
     } = this.props;
 
     await updateFavoriteSongs(event);
@@ -43,19 +43,11 @@ class Favorites extends React.Component {
   render() {
     const { favoriteSongs, isLoading } = this.state;
     const { reduceAlbumName } = this.props;
-    return (
-      <div data-testid="page-favorites" className="page-favorites">
-        <div className="favorite-music-container">
-          {isLoading
-            ? <Loading />
-            : renderSongs(favoriteSongs, this.update)}
-        </div>
-      </div>
-    );
 
     function renderSongs(songs, updateSong) {
+      const maxCharacters = 20;
       if (songs.length === 0) {
-        return <p className="favoteNotFound">Não há música favoritada</p>;
+        return <p className="favoteNotFound">Não há música favoritada.</p>;
       }
       return songs
         .map((music, index) => (
@@ -66,14 +58,13 @@ class Favorites extends React.Component {
               className="favorite-music-image"
             />
             <p className="favorite-music-name">
-              {music.musicName.length > 20
+              {music.musicName.length > maxCharacters
                 ? reduceAlbumName(music.musicName)
                 : music.musicName}
             </p>
             <div className="favorite-music-audio">
               <audio
                 className="music-audio"
-                data-testid="audio-component"
                 src={ music.preview }
                 controls
               >
@@ -90,7 +81,6 @@ class Favorites extends React.Component {
                 type="checkbox"
                 id={ `${music.trackId}` }
                 name="favorite-music"
-                data-testid={ `checkbox-music-${music.trackId}` }
                 onClick={ updateSong }
                 checked={ !favoriteSongs.includes(music.trackId) }
               />
@@ -98,7 +88,21 @@ class Favorites extends React.Component {
           </div>
         ));
     }
+    return (
+      <div className="page-favorites">
+        <div className="favorite-music-container">
+          {isLoading
+            ? <Loading />
+            : renderSongs(favoriteSongs, this.update)}
+        </div>
+      </div>
+    );
   }
 }
+
+Favorites.propTypes = {
+  reduceAlbumName: PropTypes.func.isRequired,
+  updateFavoriteSongs: PropTypes.func.isRequired,
+};
 
 export default Favorites;

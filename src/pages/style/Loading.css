@@ -1,15 +1,14 @@
 .loading {
-	display: flex;
-	justify-content: center;
-	font-family: 'Montserrat', sans-serif;
-	margin-top: 10px;
-	font-size: 50px;
-	color: var(--main-green);
-	margin-top: 70px;
-	width: 614px;
+  color: var(--main-green);
+  display: flex;
+  font-family: Montserrat , sans-serif;
+  font-size: 50px;
+  justify-content: center;
+  margin-top: 70px;
+  width: 614px;
 }
 
 .loading-login {
-	font-size: 26px;
-	color: var(--main-green);
+  color: var(--main-green);
+  font-size: 26px;
 }

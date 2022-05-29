@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
-import Loading from './Loading';
+import Loading from './components/Loading';
 import Button from './components/Button';
 import Input from './components/Input';
 import './style/Search.css';
+
+const maxNumberCharacteres = 20;
 
 class Search extends React.Component {
   constructor(props) {
@@ -53,20 +55,20 @@ class Search extends React.Component {
   }
 
   reduceAlbumName = (albumName) => {
-    const newAlbumName = albumName.slice(0, 20);
+    const newAlbumName = albumName.slice(0, maxNumberCharacteres);
     return `${newAlbumName}...`;
   }
 
   reduceArtistName = (albumName) => {
-    const newAlbumName = albumName.slice(0, 20);
+    const newAlbumName = albumName.slice(0, maxNumberCharacteres);
     return `${newAlbumName}...`;
   }
 
   render() {
     const { isSerched, isLoading,
-      serchedAlbums, searchText, isButtonDesabled } = this.state;
+      serchedAlbums, isButtonDesabled } = this.state;
     return (
-      <form data-testid="page-search" className="conteiner-search">
+      <form className="conteiner-search">
         {isLoading
           ? <Loading />
           : (
@@ -101,7 +103,6 @@ class Search extends React.Component {
                   {serchedAlbums.map((album) => (
                     <div key={ album.collectionName } className="album">
                       <Link
-                        data-testid={ `link-to-album-${album.collectionId}` }
                         to={ `/album/${album.collectionId}` }
                       >
                         <img
@@ -112,12 +113,12 @@ class Search extends React.Component {
                         <h2
                           className="collection-name"
                         >
-                          { album.collectionName.length > 20
+                          { album.collectionName.length > maxNumberCharacteres
                             ? this.reduceAlbumName(album.collectionName)
                             : album.collectionName }
                         </h2>
                         <p className="artist-name">
-                          { album.artistName.length > 20
+                          { album.artistName.length > maxNumberCharacteres
                             ? this.reduceArtistName(album.artistName)
                             : album.artistName }
                         </p>

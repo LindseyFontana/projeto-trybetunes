@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
 import '../style/Header.css';
 
 function NavegationBar() {
@@ -13,15 +14,16 @@ function NavegationBar() {
   return (
     <nav className="navegation">
       <Link
-        className={ path === '/search' || path === `/album` ? 'link link-active' : 'link link-search' }
-        data-testid="link-to-search"
+        className={
+          path === '/search' || path === '/album'
+            ? 'link link-active' : 'link link-search'
+        }
         to="/search"
       >
         Search
       </Link>
       <Link
         className={ path === '/favorites' ? 'link link-active' : 'link link-favorites' }
-        data-testid="link-to-favorites"
         to="/favorites"
       >
         Favorite Music
@@ -31,7 +33,6 @@ function NavegationBar() {
           path === '/profile' || path === '/profile/edit'
             ? 'link link-active' : 'link'
         }
-        data-testid="link-to-profile"
         to="/profile"
       >
         Profile
@@ -39,5 +40,11 @@ function NavegationBar() {
     </nav>
   );
 }
+
+NavegationBar.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 export default NavegationBar;
