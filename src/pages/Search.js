@@ -68,7 +68,6 @@ class Search extends React.Component {
       serchedAlbums, searchText, isButtonDesabled } = this.state;
     return (
       <form data-testid="page-search" className="conteiner-search">
-        {console.log(isLoading)}
         {isLoading
           ? <Loading />
           : (

@@ -10,7 +10,6 @@ import NavegationBar from './NavegationBar';
 function Header() {
   const [nameIsRender, setNameIsRender] = useState(false);
   const { user, setUser } = useContext(Context);
-  console.log(user);
 
   useEffect(() => {
     setNameIsRender(true);

@@ -24,7 +24,6 @@ class ProfileEdit extends React.Component {
   }
 
   handleChangeInput = ({ target }) => {
-    console.log(target);
     this.setState((prevState) => ({
       ...prevState,
       [target.name]: target.value,

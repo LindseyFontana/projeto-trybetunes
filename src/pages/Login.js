@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, } from 'react';
 import { BsHeadphones } from 'react-icons/bs';
 import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
@@ -10,37 +10,57 @@ import './style/Login.css';
 
 function Login() {
   const [userName, setUserName] = useState('');
-  const [isButtonDesabled, setButton] = useState(true);
+  const [userEmail, setUserEmail] = useState('');
+  // const [isButtonDesabled, setButton] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [startRedirecting, setStartRedirecting] = useState(false);
+  const [reloading, setReloading] = useState(false);
   const { setUser } = useContext(Context);
 
-  const validateInputName = ({ target }) => {
+  const saveName = ({ target }) => {
     const { value } = target;
-    const minNameSize = 3;
-    if (value.length >= minNameSize) {
-      setUserName(value);
-      setButton(false);
-      setIsLoading(false);
-    } else {
-      setUserName(value);
-      setButton(true);
-      setIsLoading(false);
+    setUserName(value);
+  };
+
+  const saveEmail = ({ target }) => {
+    const { value } = target;
+    setUserEmail(value);
+  };
+
+  const emailIsValid = () => {
+    const email = userEmail.toLowerCase();
+    const isValid = email.match(/\S+@\S+\.\S+/);
+    if (!isValid) return false;
+    return true;
+  };
+
+  const nameIsValid = () => {
+    if (userName.length >= 3) return true;
+    return false;
+  };
+
+  const userIsValid = () => {
+    if (!emailIsValid() || !nameIsValid()) {
+      alert('Dados inválidos!')
+      return false;
     }
+    return true;
   };
 
   const saveUser = (event) => {
     event.preventDefault();
-    setIsLoading(true);
-    createUser({ name: userName })
-      .then(() => {
-        setButton(false);
-        setUser((...prevState) => ({
-          ...prevState,
-          name: userName,
-        }));
-        setStartRedirecting(true);
-      });
+    if (userIsValid()) {
+      setIsLoading(true);
+      createUser({ name: userName })
+        .then(() => {
+          setUser((...prevState) => ({
+            ...prevState,
+            name: userName,
+          }));
+          setStartRedirecting(true);
+        });
+    }
+    setReloading(true);
   };
 
   return (
@@ -62,25 +82,26 @@ function Login() {
                 testId="login-name-input"
                 classStyle="login-input"
                 placeHolder="Name"
-                onChange={ validateInputName }
+                onChange={ saveName }
               />
               <Input
                 buttonType="text"
                 testId="login-senha-input"
                 classStyle="login-input"
                 placeHolder="E-mail"
-                onChange={ validateInputName }
+                onChange={ saveEmail }
               />
               <Button
                 buttonType="submit"
                 testId="search-artist-button"
                 name="login-button"
-                isDesabled={ isButtonDesabled }
+                // isDesabled={ isButtonDesabled }
                 text="Entrar"
                 clickFunction={ saveUser }
               />
             </>
           )}
+        {reloading && <Redirect to="/" /> }
         {startRedirecting && <Redirect to="/search" /> }
       </fieldset>
     </form>
