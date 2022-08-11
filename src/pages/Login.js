@@ -68,7 +68,8 @@ function Login() {
                 buttonType="text"
                 testId="login-senha-input"
                 classStyle="login-input"
-                placeHolder="Senha"
+                placeHolder="E-mail"
+                onChange={ validateInputName }
               />
               <Button
                 buttonType="submit"
