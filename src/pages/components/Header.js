@@ -14,6 +14,11 @@ function Header() {
   useEffect(() => {
     const userSaved = getUser();
     setUser(userSaved);
+  });
+
+  useEffect(() => {
+    const userSaved = getUser();
+    setUser(userSaved);
     setNameIsRender(true);
   }, []);
 
