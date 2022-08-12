@@ -20,6 +20,7 @@
 	height: 100px;
 	border: none;
 	border-bottom: 1px solid #bfc0c2;
+  color: #262d38;
 }
 
 .textarea-edit:focus {
@@ -30,4 +31,8 @@
 .container-button {
 	display: flex;
 	justify-content: center;
+}
+
+.profile-edit-input {
+  color: #262d38;
 }
