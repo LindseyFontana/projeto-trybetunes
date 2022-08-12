@@ -3,9 +3,9 @@ import { Link, Redirect } from 'react-router-dom';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Loading from './Loading';
 import Button from './components/Button';
-import NotFound from './NotFound';
 import Input from './components/Input';
 import './style/Search.css';
+import { getUser } from '../services/userAPI';
 
 class Search extends React.Component {
   constructor(props) {
@@ -63,14 +63,19 @@ class Search extends React.Component {
     return `${newAlbumName}...`;
   }
 
+  thereIsLogin = () => {
+    const userSaved = getUser();
+    if (userSaved !== {}) return false;
+    return true;
+  }
+
   render() {
     const { isSerched, isLoading,
       serchedAlbums, searchText, isButtonDesabled } = this.state;
-    // const { user } = this.context;
     return (
-      <form data-testid="page-search" className="conteiner-search">
-        {/* {!user && <Redirect to="/" />} */}
 
+      <form data-testid="page-search" className="conteiner-search">
+      {!this.thereIsLogin && <Redirect to="/" />}
         {isLoading
           ? <Loading />
           : (
