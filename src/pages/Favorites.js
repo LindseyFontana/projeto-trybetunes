@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import Loading from './Loading';
 import './style/Favorites.css';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
@@ -43,13 +44,17 @@ class Favorites extends React.Component {
   render() {
     const { favoriteSongs, isLoading } = this.state;
     const { reduceAlbumName } = this.props;
+    const { user } = this.context;
+
     return (
       <div data-testid="page-favorites" className="page-favorites">
         <div className="favorite-music-container">
           {isLoading && <Loading /> }
 
-          {!isLoading && favoriteSongs.length === 0 
+          {!isLoading && favoriteSongs.length === 0
+
           && <p className="no-favorite-song">There aren't favorite songs</p> }
+
           {
             !isLoading && favoriteSongs.length !== 0
             && favoriteSongs

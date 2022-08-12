@@ -14,6 +14,7 @@ function Provider({ children }) {
     <Context.Provider
       value={ { user, setUser } }
     >
+      {console.log(user)}
       {children}
     </Context.Provider>
   );

@@ -1,4 +1,5 @@
 import { PropTypes } from 'prop-types';
+import { Redirect } from 'react-router-dom';
 import React from 'react';
 import Loading from './Loading';
 import './style/MusicCard.css';
@@ -18,8 +19,11 @@ class MusicCard extends React.Component {
       isLoading,
       reduceAlbumName,
     } = this.props;
+    // const { user } = this.context;
     return (
       <div className="musics-album">
+        {/* {!user && <Redirect to="/" />} */}
+
         {isLoading
           ? <Loading />
           : musicsList

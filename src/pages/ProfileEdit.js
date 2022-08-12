@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaUserCircle } from 'react-icons/fa';
+import { Redirect } from 'react-router-dom';
 import './style/ProfileEdit.css';
 import { getUser, updateUser } from '../services/userAPI';
 import Button from './components/Button';
@@ -30,15 +31,27 @@ class ProfileEdit extends React.Component {
     }));
   }
 
-  handleSubmit = () => {
-    updateUser(this.state);
-    const { history } = this.props;
-    history.push('/profile');
+  validateUpdate = () => {
+    const { name, email } = this.state;
+    const emailLowerCase = email.toLowerCase();
+    const isValid = emailLowerCase.match(/\S+@\S+\.\S+/);
+    if (name.length < 3 || isValid === null) {
+      alert('Dados inválidos!');
+      return false;
+    }
+    return true;
   }
+
+  handleSubmit = () => {
+    if (this.validateUpdate()) {
+      updateUser(this.state);
+      const { history } = this.props;
+      history.push('/profile');
+    }
+  };
 
   render() {
     const { image, name, email, description } = this.state;
-
     return (
       <div data-testid="page-profile-edit">
         <div className="profile-edit-container">
@@ -49,6 +62,7 @@ class ProfileEdit extends React.Component {
               name="image"
               placeHolder="Insira o link da imagem"
               value={ image !== '' ? image : null }
+              value={ image !== '' ? user.image : null }
               onChange={ this.handleChangeInput }
             />
           </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Loading from './Loading';
 import Button from './components/Button';
@@ -66,8 +66,11 @@ class Search extends React.Component {
   render() {
     const { isSerched, isLoading,
       serchedAlbums, searchText, isButtonDesabled } = this.state;
+    // const { user } = this.context;
     return (
       <form data-testid="page-search" className="conteiner-search">
+        {/* {!user && <Redirect to="/" />} */}
+
         {isLoading
           ? <Loading />
           : (

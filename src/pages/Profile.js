@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaUserCircle } from 'react-icons/fa';
+import { Redirect } from 'react-router-dom';
 import Button from './components/Button';
 import './style/Profile.css';
 
@@ -30,9 +31,10 @@ class Profile extends React.Component {
 
   render() {
     const { userInfos } = this.state;
-
+    // const user = this.context;
     return (
       <div className="page-profile" data-testid="page-profile">
+        {/* {!user && <Redirect to="/" />} */}
         <div className="profile-container">
           <div className="profile-image-container">
             <FaUserCircle className="profile-icon" />

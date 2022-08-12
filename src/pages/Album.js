@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import getMusics from '../services/musicsAPI';
 import MusicCard from './MusicCard';
@@ -39,8 +40,11 @@ class Album extends React.Component {
     } = this.props;
 
     const { musics, album } = this.state;
+    // const { user } = this.context;
     return (
       <div data-testid="page-album">
+        {/* {!user && <Redirect to="/" />} */}
+
         { musics.length > 0
         && (
           <div className="music-card">
