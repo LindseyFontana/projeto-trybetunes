@@ -10,7 +10,7 @@ class NotFound extends React.Component {
         <div className="text-not-found">
           <p className="ops">Ops!</p>
           <p className="message-not-found">
-            A página que você está procurando não foi encontrada.
+            Page not found.
           </p>
         </div>
       </div>
