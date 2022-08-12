@@ -79,7 +79,7 @@ class Search extends React.Component {
                 buttonType="text"
                 testId="search-artist-input"
                 classStyle="search-input"
-                placeHolder="Nome do artista"
+                placeHolder="Artist name"
                 onChange={ this.validadeSearchText }
               />
               <Button
@@ -87,7 +87,7 @@ class Search extends React.Component {
                 testId="search-artist-button"
                 name="search-button"
                 isDesabled={ isButtonDesabled }
-                text="Pesquisar"
+                text="Search"
                 clickFunction={ this.getAlbums }
                 isLoading={ isLoading }
               />

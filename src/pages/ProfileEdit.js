@@ -36,7 +36,7 @@ class ProfileEdit extends React.Component {
     const emailLowerCase = email.toLowerCase();
     const isValid = emailLowerCase.match(/\S+@\S+\.\S+/);
     if (name.length < 3 || isValid === null) {
-      alert('Dados inválidos!');
+      alert('Invalid Data!');
       return false;
     }
     return true;
@@ -60,17 +60,16 @@ class ProfileEdit extends React.Component {
             <Input
               classStyle="input-image"
               name="image"
-              placeHolder="Insira o link da imagem"
+              placeHolder="Insert image link"
               value={ image !== '' ? image : null }
-              value={ image !== '' ? user.image : null }
               onChange={ this.handleChangeInput }
             />
           </div>
           <Input
             buttonType="text"
             classStyle="profile-edit-input"
-            placeHolder="Insira seu nome"
-            label="Nome"
+            placeHolder="insert your name"
+            label="Name"
             name="name"
             value={ name !== '' ? name : null }
             onChange={ this.handleChangeInput }
@@ -78,7 +77,7 @@ class ProfileEdit extends React.Component {
           <Input
             buttonType="text"
             classStyle="profile-edit-input"
-            placeHolder="usuario@usuario.com.br"
+            placeHolder="user@user.com"
             label="E-mail"
             name="email"
             value={ email !== '' ? email : null }
@@ -88,10 +87,10 @@ class ProfileEdit extends React.Component {
             htmlFor="description"
             className="profile-edit-label"
           >
-            Descrição
+            Description
             <textarea
               className="profile-edit-input textarea-edit"
-              placeholder="Sobre mim"
+              placeholder="about me"
               id="description"
               name="description"
               value={ description !== '' ? description : null }
@@ -105,7 +104,7 @@ class ProfileEdit extends React.Component {
               buttonType="submit"
               testId="edit-button-save"
               name="profile-button-save"
-              text="Salvar"
+              text="Save"
               clickFunction={ this.handleSubmit }
             />
           </div>

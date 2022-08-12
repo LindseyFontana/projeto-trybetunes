@@ -42,12 +42,12 @@ class Profile extends React.Component {
               buttonType="button"
               testId=""
               name="edit-button"
-              text="Editar Perfil"
+              text="Edit profile"
               clickFunction={ this.handleClick }
             />
           </div>
           <label htmlFor="profile-name" className="profile-label">
-            Nome
+            Name
             <p className="user-infos" id="profile-name">
               {userInfos.name}
             </p>
@@ -68,7 +68,7 @@ class Profile extends React.Component {
             htmlFor="profile-description"
             className="profile-label"
           >
-            Descrição
+            Description
             <p
               className="user-infos"
               id="profile-description"

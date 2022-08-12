@@ -45,7 +45,7 @@ function Login() {
 
   const userIsValid = () => {
     if (!emailIsValid() || !nameIsValid()) {
-      alert('Dados inválidos!');
+      alert('Invalid data!');
       return false;
     }
     return true;
@@ -106,7 +106,7 @@ function Login() {
                 testId="search-artist-button"
                 name="login-button"
                 // isDesabled={ isButtonDesabled }
-                text="Entrar"
+                text="Sign in"
                 clickFunction={ saveUser }
               />
             </>

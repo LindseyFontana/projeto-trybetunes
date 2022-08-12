@@ -53,7 +53,7 @@ class Favorites extends React.Component {
 
           {!isLoading && favoriteSongs.length === 0
 
-          && <p className="no-favorite-song">There aren't favorite songs</p> }
+          && <p className="no-favorite-song">There aren't favorite songs.</p> }
 
           {
             !isLoading && favoriteSongs.length !== 0

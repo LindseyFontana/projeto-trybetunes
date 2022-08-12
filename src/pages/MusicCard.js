@@ -42,7 +42,7 @@ class MusicCard extends React.Component {
                 >
                   <track kind="captions" />
                   {' '}
-                  O seu navegador não suporta o elemento
+                  Your browser does not support the element
                   {' '}
                   <code>audio</code>
                   ..
