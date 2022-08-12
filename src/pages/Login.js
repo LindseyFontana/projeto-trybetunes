@@ -1,7 +1,7 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { BsHeadphones } from 'react-icons/bs';
 import { Redirect } from 'react-router-dom';
-import { createUser } from '../services/userAPI';
+import { createUser, removeUser, getUser } from '../services/userAPI';
 import Context from '../contextAPI/Context';
 import Loading from './Loading';
 import Button from './components/Button';
@@ -15,6 +15,11 @@ function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const [startRedirecting, setStartRedirecting] = useState(false);
   const { setUser } = useContext(Context);
+
+  useEffect(() => {
+    removeUser();
+    setUser({});
+  }, []);
 
   const saveName = ({ target }) => {
     const { value } = target;
@@ -46,15 +51,22 @@ function Login() {
     return true;
   };
 
+  useEffect(() => {
+    const userSaved = getUser();
+    setUser(userSaved);
+    // setNameIsRender(true);
+  }, []);
+
   const saveUser = (event) => {
     event.preventDefault();
     if (userIsValid()) {
       setIsLoading(true);
-      createUser({ name: userName })
+      createUser({ name: userName, email: userEmail })
         .then(() => {
           setUser((...prevState) => ({
             ...prevState,
             name: userName,
+            email: userEmail,
           }));
           setStartRedirecting(true);
         });

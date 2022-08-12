@@ -16,6 +16,7 @@ export const getUser = () => {
   if (user === null) {
     user = {};
   }
+  return user;
 };
 
 export const createUser = (user) => new Promise((resolve) => {
@@ -30,3 +31,5 @@ export const createUser = (user) => new Promise((resolve) => {
 });
 
 export const updateUser = (updatedUser) => saveUser({ ...updatedUser });
+
+export const removeUser = () => saveUser({});

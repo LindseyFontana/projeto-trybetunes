@@ -12,6 +12,8 @@ function Header() {
   const { user, setUser } = useContext(Context);
 
   useEffect(() => {
+    const userSaved = getUser();
+    setUser(userSaved);
     setNameIsRender(true);
   }, []);
 
