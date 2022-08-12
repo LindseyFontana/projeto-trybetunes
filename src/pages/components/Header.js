@@ -31,7 +31,7 @@ function Header() {
         </Link>
         { nameIsRender
           ? (
-            <Link className="user-name" to="/profile/edit">
+            // <Link className="user-name" to="/profile/edit">
               <div className="user">
                 <FaUserCircle className="user-icon" />
                 <p
@@ -41,7 +41,7 @@ function Header() {
                   { user.name }
                 </p>
               </div>
-            </Link>
+            // </Link>
           )
           : <Loading />}
       </div>

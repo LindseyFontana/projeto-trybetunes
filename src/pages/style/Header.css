@@ -4,7 +4,7 @@
   color: #2FC18C;
   height: 100%;
   width: 90%;
-  text-decoration: none;
+  /* text-decoration: none; */
   background: #F0F2F5;
   display: flex;
   align-items: center;
@@ -53,7 +53,7 @@
 }
 
 .user-name {
-  text-decoration: none;
+  /* text-decoration: none; */
   color: #29313D;
   font-size: 16px;
 }

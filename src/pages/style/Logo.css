@@ -1,5 +1,5 @@
 .header-logo-container {
-  text-decoration: none;
+  /* text-decoration: none; */
   display: flex;
   flex-direction: column;
   font-size: 20px;
@@ -43,7 +43,11 @@
   color: #444955;
 }
 
-.login-link{
-  text-decoration: none;
+.header-link{
+  /* text-decoration: none; */
   color: #FFFFFF;
 }
+
+/* .not-found-link {
+  text-decoration: none;
+} */
