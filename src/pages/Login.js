@@ -1,4 +1,4 @@
-import React, { useState, useContext, } from 'react';
+import React, { useState, useContext } from 'react';
 import { BsHeadphones } from 'react-icons/bs';
 import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
@@ -14,7 +14,6 @@ function Login() {
   // const [isButtonDesabled, setButton] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [startRedirecting, setStartRedirecting] = useState(false);
-  const [reloading, setReloading] = useState(false);
   const { setUser } = useContext(Context);
 
   const saveName = ({ target }) => {
@@ -41,7 +40,7 @@ function Login() {
 
   const userIsValid = () => {
     if (!emailIsValid() || !nameIsValid()) {
-      alert('Dados inválidos!')
+      alert('Dados inválidos!');
       return false;
     }
     return true;
@@ -60,7 +59,6 @@ function Login() {
           setStartRedirecting(true);
         });
     }
-    setReloading(true);
   };
 
   return (
@@ -101,7 +99,6 @@ function Login() {
               />
             </>
           )}
-        {reloading && <Redirect to="/" /> }
         {startRedirecting && <Redirect to="/search" /> }
       </fieldset>
     </form>
