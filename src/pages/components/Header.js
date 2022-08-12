@@ -31,7 +31,7 @@ function Header() {
         </Link>
         { nameIsRender
           ? (
-            <Link to="/profile/edit">
+            <Link className="user-name" to="/profile/edit">
               <div className="user">
                 <FaUserCircle className="user-icon" />
                 <p

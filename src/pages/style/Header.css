@@ -53,6 +53,7 @@
 }
 
 .user-name {
+  text-decoration: none;
   color: #29313D;
   font-size: 16px;
 }
