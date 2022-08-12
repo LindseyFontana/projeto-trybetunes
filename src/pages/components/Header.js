@@ -26,12 +26,12 @@ function Header() {
   return (
     <header data-testid="header-component" className="header-component">
       <div className="user-header">
-        <Link className="login-link" to="/">
+        <Link to="/">
           <Logo component="header" />
         </Link>
         { nameIsRender
           ? (
-            // <Link className="user-name" to="/profile/edit">
+            <Link to="/profile/edit">
               <div className="user">
                 <FaUserCircle className="user-icon" />
                 <p
@@ -41,7 +41,7 @@ function Header() {
                   { user.name }
                 </p>
               </div>
-            // </Link>
+            </Link>
           )
           : <Loading />}
       </div>
