@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { FaUserCircle } from 'react-icons/fa';
 import { getUser } from '../../services/userAPI';
 import Context from '../../contextAPI/Context';
@@ -25,18 +26,22 @@ function Header() {
   return (
     <header data-testid="header-component" className="header-component">
       <div className="user-header">
-        <Logo component="header" />
+        <Link className="login-link" to="/">
+          <Logo component="header" />
+        </Link>
         { nameIsRender
           ? (
-            <div className="user">
-              <FaUserCircle className="user-icon" />
-              <p
-                data-testid="header-user-name"
-                className="user-name"
-              >
-                { user.name }
-              </p>
-            </div>
+            <Link to="/profile/edit">
+              <div className="user">
+                <FaUserCircle className="user-icon" />
+                <p
+                  data-testid="header-user-name"
+                  className="user-name"
+                >
+                  { user.name }
+                </p>
+              </div>
+            </Link>
           )
           : <Loading />}
       </div>

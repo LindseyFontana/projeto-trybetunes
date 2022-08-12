@@ -13,7 +13,12 @@ function NavegationBar() {
   return (
     <nav className="navegation">
       <Link
-        className={ path === '/search' || path === `/album` ? 'link link-active' : 'link link-search' }
+        className={
+          path === '/search'
+          || path === '/album'
+            ? 'link link-active'
+            : 'link link-search'
+        }
         data-testid="link-to-search"
         to="/search"
       >

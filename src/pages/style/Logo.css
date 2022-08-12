@@ -1,45 +1,49 @@
 .header-logo-container {
-	display: flex;
-	flex-direction: column;
-	font-size: 20px;
-  }
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+}
 
-  .icon-header {
-	font-size: 24px;
-	color: #2FC18C;
-	margin-left: 6px;
-  }
+.icon-header {
+  font-size: 24px;
+  color: #2FC18C;
+  margin-left: 6px;
+}
 
-  .header-logo-up {
-	margin-right: 5px;
-	font-weight: bold;
-  }
+.header-logo-up {
+  margin-right: 5px;
+  font-weight: bold;
+}
   
-  .header-logo-down {
-	margin-left: 30px;
-  }
+.header-logo-down {
+  margin-left: 30px;
+}
 
-  .notFound-logo-container {
-	display: flex;
-	flex-direction: column;
-	font-size: 28px;
-  }
+.notFound-logo-container {
+  display: flex;
+  flex-direction: column;
+  font-size: 28px;
+}
 
-  .icon-notFound {
-	font-size: 28px;
-	color: #2FC18C;
-	margin-left: 6px;
-  }
+.icon-notFound {
+  font-size: 28px;
+  color: #2FC18C;
+  margin-left: 6px;
+}
   
-  .notFound-logo-up {
-	margin-right: 5px;
-	font-weight: bold;
-	color: #444955;
-  }
-  
-  .notFound-logo-down {
-	margin-left: 30px;
-	color: #444955;
-  }
+.notFound-logo-up {
+  margin-right: 5px;
+  font-weight: bold;
+  color: #444955;
+}
 
-  
+.notFound-logo-down {
+  margin-left: 30px;
+  color: #444955;
+}
+
+.login-link{
+  text-decoration: none;
+  color: #FFFFFF;
+}
