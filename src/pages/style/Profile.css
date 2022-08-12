@@ -1,12 +1,13 @@
 .page-profile {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	/* justify-content: center; */
 	align-items: center;
-	margin-top: 60px;
+	margin-top: 33px;
 }
 
 .profile-container {
+	min-height: 64.4vh;
 	width: 316px;
 	padding: 15px;
 }

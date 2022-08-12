@@ -7,9 +7,10 @@
 	color: #001813;
 }
 .page-favorites {
+	min-height: 58.7vh;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	/* justify-content: center; */
 	align-items: center;
 	margin-top: 70px;
 }
