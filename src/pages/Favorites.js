@@ -46,9 +46,13 @@ class Favorites extends React.Component {
     return (
       <div data-testid="page-favorites" className="page-favorites">
         <div className="favorite-music-container">
-          {isLoading
-            ? <Loading />
-            : favoriteSongs
+          {isLoading && <Loading /> }
+
+          {!isLoading && favoriteSongs.length === 0 
+          && <p className="no-favorite-song">There aren't favorite songs</p> }
+          {
+            !isLoading && favoriteSongs.length !== 0
+            && favoriteSongs
               .map((music, index) => (
                 <div key={ index } className="favorite-music">
                   <img
@@ -87,7 +91,8 @@ class Favorites extends React.Component {
                     />
                   </label>
                 </div>
-              ))}
+              ))
+          }
         </div>
       </div>
     );
