@@ -1,0 +1,13 @@
+.footer {
+	display: flex;
+	align-content: center;
+	background: #023031;
+	color: #F0F2F5;
+	font-size: 16px;
+	padding: 10px;
+}
+
+.icon-copyryght {
+	font-size: 16px;
+	margin-right: 4px;
+}

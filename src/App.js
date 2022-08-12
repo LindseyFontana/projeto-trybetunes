@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Album from './pages/Album';
 import Header from './pages/components/Header';
+import Footer from './pages/components/Footer';
 import Favorites from './pages/Favorites';
 import Login from './pages/Login';
 import NotFound from './pages/NotFound';
@@ -85,6 +86,7 @@ class App extends React.Component {
             <Route exact path="/search">
               <Header />
               <Search />
+              <Footer />
             </Route>
 
             <Route
@@ -100,6 +102,7 @@ class App extends React.Component {
                     isLoading={ isLoading }
                     reduceAlbumName={ this.reduceAlbumName }
                   />
+                  <Footer />
                 </>
               ) }
             />
@@ -113,6 +116,7 @@ class App extends React.Component {
                   isLoading={ isLoading }
                   reduceAlbumName={ this.reduceAlbumName }
                 />
+                <Footer />
               </>
             </Route>
 
@@ -123,6 +127,7 @@ class App extends React.Component {
                 <>
                   <Header />
                   <Profile { ...props } />
+                  <Footer />
                 </>
               ) }
             />
@@ -134,6 +139,7 @@ class App extends React.Component {
                 <>
                   <Header />
                   <ProfileEdit handleHeader={ this.handleHeader } { ...props } />
+                  <Footer />
                 </>
               ) }
             />
