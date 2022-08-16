@@ -6,7 +6,7 @@ Este projeto consiste em uma aplicação front-end desenvolvida em React que rel
 * Criar uma lista de músicas favoritas que ficam armazenadas no localStorage;
 * Editar o perfil do usuário;
 
-Projeto React desenvolvido por Lindsey Oliva Fontana durante o módulo de Front-End do curso de desenvolvimento web da escola Trybe rocket
+Projeto React desenvolvido por Lindsey Oliva Fontana durante o módulo de Front-End do curso de desenvolvimento web da escola Trybe 🚀
 
 ## 🛠 Ferramentas
 * HTML5
