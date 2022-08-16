@@ -4,9 +4,13 @@ import { Redirect } from 'react-router-dom';
 import './style/ProfileEdit.css';
 import { getUser, updateUser } from '../services/userAPI';
 import Button from './components/Button';
+import Context from '../contextAPI/Context';
 import Input from './components/Input';
+// import Context from '../contextAPI/Context';
 
 class ProfileEdit extends React.Component {
+  static contextType = Context;
+
   constructor() {
     super();
     this.state = {
@@ -52,6 +56,8 @@ class ProfileEdit extends React.Component {
 
   render() {
     const { image, name, email, description } = this.state;
+    const { setUser } = this.context;
+
     return (
       <div data-testid="page-profile-edit">
         <div className="profile-edit-container">
@@ -105,7 +111,10 @@ class ProfileEdit extends React.Component {
               testId="edit-button-save"
               name="profile-button-save"
               text="Save"
-              clickFunction={ this.handleSubmit }
+              clickFunction={ () => {
+                this.handleSubmit();
+                setUser(this.state);
+              } }
             />
           </div>
         </div>
