@@ -8,6 +8,8 @@
 /recursosTrybe
 # production
 /build
+/recursosTrybe
+*.mp4
 
 # misc
 .DS_Store
