@@ -3,25 +3,18 @@
   "version": "0.1.0",
   "homepage": "https://trybetunes-lindsey.herokuapp.com/",
   "private": true,
-  "engines": {
-    "node": "16"
-  },
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "favicon": "^0.0.2",
+    "dotenv": "^8.2.0",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
     "start": "react-scripts start"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
