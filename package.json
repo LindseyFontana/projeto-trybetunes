@@ -3,18 +3,28 @@
   "version": "0.1.0",
   "homepage": "https://trybetunes-lindsey.herokuapp.com/",
   "private": true,
+  "engines": {
+    "node": "16"
+  },
   "dependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
-    "favicon": "^0.0.2",
-    "dotenv": "^8.2.0",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
     "start": "react-scripts start"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
     "production": [
@@ -29,6 +39,13 @@
     ]
   },
   "devDependencies": {
-    "prop-types": "^15.7.2"
+    "eslint": "^7.31.0",
+    "eslint-config-trybe-frontend": "^1.2.2",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-sonarjs": "^0.9.1",
+    "prop-types": "^15.7.2",
+    "stylelint": "^13.8.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-order": "4.1.0"
   }
 }
