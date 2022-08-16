@@ -12,10 +12,10 @@ function Header() {
   const [nameIsRender, setNameIsRender] = useState(false);
   const { user, setUser } = useContext(Context);
 
-  useEffect(() => {
-    const userSaved = getUser();
-    setUser(userSaved);
-  });
+  // useEffect(() => {
+  //   const userSaved = getUser();
+  //   setUser(userSaved);
+  // });
 
   useEffect(() => {
     const userSaved = getUser();
