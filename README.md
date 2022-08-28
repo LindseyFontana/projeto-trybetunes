@@ -25,9 +25,6 @@ Projeto React desenvolvido por Lindsey Oliva Fontana durante o módulo de Front-
 <summary><strong>Dependências</strong></summary>
 
 * npm install
-* npm i react
-* npm i react-icons
-* npm i react-router-dom@6
 </details>
 
 <details>
