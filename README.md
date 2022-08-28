@@ -22,7 +22,7 @@ Projeto React desenvolvido por Lindsey Oliva Fontana durante o módulo de Front-
 
 ## ⚠️ Orientações
 <details>
-<summary><strong>Dependências</strong></summary>
+<summary><strong>Instalar dependências</strong></summary>
 
 * npm install
 </details>
